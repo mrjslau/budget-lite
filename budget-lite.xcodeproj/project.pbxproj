@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		77A8FE1825E452EF001A31CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE1725E452EF001A31CA /* AppDelegate.swift */; };
 		77A8FE1A25E452EF001A31CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE1925E452EF001A31CA /* SceneDelegate.swift */; };
-		77A8FE1C25E452EF001A31CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE1B25E452EF001A31CA /* ViewController.swift */; };
+		77A8FE1C25E452EF001A31CA /* OneTimeExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE1B25E452EF001A31CA /* OneTimeExpenseViewController.swift */; };
 		77A8FE1F25E452EF001A31CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE1D25E452EF001A31CA /* Main.storyboard */; };
 		77A8FE2125E452F0001A31CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE2025E452F0001A31CA /* Assets.xcassets */; };
 		77A8FE2425E452F0001A31CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE2225E452F0001A31CA /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		77A8FE1425E452EF001A31CA /* budget-lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "budget-lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A8FE1725E452EF001A31CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77A8FE1925E452EF001A31CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		77A8FE1B25E452EF001A31CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		77A8FE1B25E452EF001A31CA /* OneTimeExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeExpenseViewController.swift; sourceTree = "<group>"; };
 		77A8FE1E25E452EF001A31CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		77A8FE2025E452F0001A31CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77A8FE2325E452F0001A31CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,13 +58,37 @@
 			children = (
 				77A8FE1725E452EF001A31CA /* AppDelegate.swift */,
 				77A8FE1925E452EF001A31CA /* SceneDelegate.swift */,
-				77A8FE1B25E452EF001A31CA /* ViewController.swift */,
-				77A8FE1D25E452EF001A31CA /* Main.storyboard */,
+				77A8FE2F25E4532E001A31CA /* Model */,
+				77A8FE2D25E4531D001A31CA /* Controller */,
+				77A8FE2C25E45318001A31CA /* View */,
 				77A8FE2025E452F0001A31CA /* Assets.xcassets */,
-				77A8FE2225E452F0001A31CA /* LaunchScreen.storyboard */,
 				77A8FE2525E452F0001A31CA /* Info.plist */,
 			);
 			path = "budget-lite";
+			sourceTree = "<group>";
+		};
+		77A8FE2C25E45318001A31CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				77A8FE1D25E452EF001A31CA /* Main.storyboard */,
+				77A8FE2225E452F0001A31CA /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		77A8FE2D25E4531D001A31CA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				77A8FE1B25E452EF001A31CA /* OneTimeExpenseViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		77A8FE2F25E4532E001A31CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77A8FE1C25E452EF001A31CA /* ViewController.swift in Sources */,
+				77A8FE1C25E452EF001A31CA /* OneTimeExpenseViewController.swift in Sources */,
 				77A8FE1825E452EF001A31CA /* AppDelegate.swift in Sources */,
 				77A8FE1A25E452EF001A31CA /* SceneDelegate.swift in Sources */,
 			);

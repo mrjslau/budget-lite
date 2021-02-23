@@ -23,6 +23,10 @@
 		77A8FE4325E456DF001A31CA /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE3925E456DF001A31CA /* OpenSans-LightItalic.ttf */; };
 		77A8FE4425E456DF001A31CA /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE3A25E456DF001A31CA /* OpenSans-SemiBoldItalic.ttf */; };
 		77A8FE4525E456DF001A31CA /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE3B25E456DF001A31CA /* OpenSans-Light.ttf */; };
+		77A8FE4925E46D8D001A31CA /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE4725E46D8D001A31CA /* ExpenseCell.swift */; };
+		77A8FE4A25E46D8D001A31CA /* ExpenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE4825E46D8D001A31CA /* ExpenseCell.xib */; };
+		77A8FE5125E4EFB9001A31CA /* ExpenseSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE4F25E4EFB9001A31CA /* ExpenseSectionHeader.swift */; };
+		77A8FE5225E4EFB9001A31CA /* ExpenseSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE5025E4EFB9001A31CA /* ExpenseSectionHeader.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,10 @@
 		77A8FE3925E456DF001A31CA /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		77A8FE3A25E456DF001A31CA /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		77A8FE3B25E456DF001A31CA /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		77A8FE4725E46D8D001A31CA /* ExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
+		77A8FE4825E46D8D001A31CA /* ExpenseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseCell.xib; sourceTree = "<group>"; };
+		77A8FE4F25E4EFB9001A31CA /* ExpenseSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSectionHeader.swift; sourceTree = "<group>"; };
+		77A8FE5025E4EFB9001A31CA /* ExpenseSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseSectionHeader.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,7 @@
 				77A8FE2F25E4532E001A31CA /* Model */,
 				77A8FE2D25E4531D001A31CA /* Controller */,
 				77A8FE2C25E45318001A31CA /* View */,
+				77A8FE4C25E46D91001A31CA /* Cells */,
 				77A8FE2025E452F0001A31CA /* Assets.xcassets */,
 				77A8FE3125E456C9001A31CA /* Fonts */,
 				77A8FE2525E452F0001A31CA /* Info.plist */,
@@ -127,6 +136,17 @@
 				77A8FE3A25E456DF001A31CA /* OpenSans-SemiBoldItalic.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		77A8FE4C25E46D91001A31CA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				77A8FE4725E46D8D001A31CA /* ExpenseCell.swift */,
+				77A8FE4825E46D8D001A31CA /* ExpenseCell.xib */,
+				77A8FE4F25E4EFB9001A31CA /* ExpenseSectionHeader.swift */,
+				77A8FE5025E4EFB9001A31CA /* ExpenseSectionHeader.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,8 +210,10 @@
 				77A8FE4425E456DF001A31CA /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				77A8FE2425E452F0001A31CA /* LaunchScreen.storyboard in Resources */,
 				77A8FE4125E456DF001A31CA /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				77A8FE5225E4EFB9001A31CA /* ExpenseSectionHeader.xib in Resources */,
 				77A8FE3C25E456DF001A31CA /* OpenSans-Italic.ttf in Resources */,
 				77A8FE3E25E456DF001A31CA /* OpenSans-Bold.ttf in Resources */,
+				77A8FE4A25E46D8D001A31CA /* ExpenseCell.xib in Resources */,
 				77A8FE4225E456DF001A31CA /* OpenSans-BoldItalic.ttf in Resources */,
 				77A8FE4325E456DF001A31CA /* OpenSans-LightItalic.ttf in Resources */,
 				77A8FE3F25E456DF001A31CA /* OpenSans-Regular.ttf in Resources */,
@@ -209,6 +231,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77A8FE5125E4EFB9001A31CA /* ExpenseSectionHeader.swift in Sources */,
+				77A8FE4925E46D8D001A31CA /* ExpenseCell.swift in Sources */,
 				77A8FE1C25E452EF001A31CA /* OneTimeExpenseViewController.swift in Sources */,
 				77A8FE1825E452EF001A31CA /* AppDelegate.swift in Sources */,
 				77A8FE1A25E452EF001A31CA /* SceneDelegate.swift in Sources */,

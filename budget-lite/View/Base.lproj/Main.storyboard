@@ -15,10 +15,27 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="plo-F1-rMh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Expenses" id="WZi-a5-afE"/>
+                    <navigationItem key="navigationItem" title="Expenses" id="WZi-a5-afE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gvM-7e-4L3">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="xbd-Og-56a"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="plo-F1-rMh" id="mkV-H9-X4n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -29,7 +46,7 @@
             <objects>
                 <viewController id="F23-5A-aOx" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pAk-0Y-EW2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="CPN-Y2-kgP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -96,7 +113,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ghW-9F-gvg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Statistics" image="stats-icon" id="9S3-Pd-RAV"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SOp-MN-Zcs">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="SOp-MN-Zcs">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1145405546" green="0.493372798" blue="0.53727877140000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

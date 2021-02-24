@@ -30,6 +30,7 @@
 		77A8FE5525E4F4B9001A31CA /* AlertStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE5425E4F4B9001A31CA /* AlertStoryboard.storyboard */; };
 		77A8FE5825E4F4D6001A31CA /* AddExpenseAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE5725E4F4D6001A31CA /* AddExpenseAlertViewController.swift */; };
 		77A8FE5C25E4FBD0001A31CA /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE5B25E4FBD0001A31CA /* AlertService.swift */; };
+		77A8FE6025E53305001A31CA /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE5F25E53305001A31CA /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		77A8FE5425E4F4B9001A31CA /* AlertStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertStoryboard.storyboard; sourceTree = "<group>"; };
 		77A8FE5725E4F4D6001A31CA /* AddExpenseAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseAlertViewController.swift; sourceTree = "<group>"; };
 		77A8FE5B25E4FBD0001A31CA /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		77A8FE5F25E53305001A31CA /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				77A8FE2025E452F0001A31CA /* Assets.xcassets */,
 				77A8FE3125E456C9001A31CA /* Fonts */,
 				77A8FE2525E452F0001A31CA /* Info.plist */,
+				77A8FE5F25E53305001A31CA /* CustomTextField.swift */,
 			);
 			path = "budget-lite";
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				77A8FE5825E4F4D6001A31CA /* AddExpenseAlertViewController.swift in Sources */,
 				77A8FE5C25E4FBD0001A31CA /* AlertService.swift in Sources */,
 				77A8FE4925E46D8D001A31CA /* ExpenseCell.swift in Sources */,
+				77A8FE6025E53305001A31CA /* CustomTextField.swift in Sources */,
 				77A8FE1C25E452EF001A31CA /* OneTimeExpenseViewController.swift in Sources */,
 				77A8FE1825E452EF001A31CA /* AppDelegate.swift in Sources */,
 				77A8FE1A25E452EF001A31CA /* SceneDelegate.swift in Sources */,

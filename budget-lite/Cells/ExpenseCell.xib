@@ -38,7 +38,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maxima" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdg-m9-ec6" userLabel="nameLabel">
-                                <rect key="frame" x="172" y="7" width="64" height="21"/>
+                                <rect key="frame" x="100" y="7" width="64" height="21"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="18"/>
                                 <color key="textColor" name="black-color-jet"/>
                                 <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                         <constraints>
                             <constraint firstItem="rRX-E2-yki" firstAttribute="centerY" secondItem="80f-0Z-kY0" secondAttribute="centerY" id="FVZ-1Y-1pw"/>
                             <constraint firstItem="jdg-m9-ec6" firstAttribute="centerY" secondItem="80f-0Z-kY0" secondAttribute="centerY" id="Ivu-Zh-Acp"/>
-                            <constraint firstItem="jdg-m9-ec6" firstAttribute="leading" secondItem="rRX-E2-yki" secondAttribute="trailing" constant="100" id="f16-kf-hbc"/>
+                            <constraint firstItem="jdg-m9-ec6" firstAttribute="leading" secondItem="80f-0Z-kY0" secondAttribute="leading" constant="100" id="f16-kf-hbc"/>
                             <constraint firstItem="rRX-E2-yki" firstAttribute="leading" secondItem="80f-0Z-kY0" secondAttribute="leading" constant="10" id="gBa-Sd-v8i"/>
                         </constraints>
                     </view>

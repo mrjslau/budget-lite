@@ -10,6 +10,14 @@ import UIKit
 class OneTimeExpenseViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    let alertService = AlertService()
+    
+    let expenses = [
+        ["sum" : 13.56, "name" : "Maxima"],
+        ["sum" : 15.00, "name" : "Rimi"],
+        ["sum" : 3.10, "name" : "Taxi"]
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,19 +29,15 @@ class OneTimeExpenseViewController: UIViewController {
 
 
     @IBAction func addButtonPressed(_ sender: Any) {
-        let alert = UIAlertController(title: "Add Expense", message: nil, preferredStyle: .alert)
-        alert.addTextField(configurationHandler: nil)
-        let addAction = UIAlertAction(title: "Add", style: .default) { (action) in
-            //print(alert.textFields![0].text)
+        let alertVC = alertService.alert(title: "Add Expense", buttonTitle: "Add") {
+            print("Add tapped")
         }
-        alert.addAction(addAction)
-        
-        self.present(alert, animated: true, completion: nil)
+        self.present(alertVC, animated: true, completion: nil)
     }
 }
 
 extension OneTimeExpenseViewController: UITableViewDelegate, UITableViewDataSource {
-    // TableView Sections
+    // Sections
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -49,18 +53,18 @@ extension OneTimeExpenseViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return expenses.count
     }
     
-    // TableView Cells
+    // Cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as! ExpenseCell
-        cell.nameLabel.text = "Maxima"
-        cell.totalLabel.text = "-45,67€"
+        cell.nameLabel.text = expenses[indexPath.row]["name"] as? String
+        cell.totalLabel.text = String((expenses[indexPath.row]["sum"] as? Double)!)
         return cell
     }
     
-    // TableView Register Custom Views
+    // Register Custom Views
     private func registerCustomCells() {
         let cell = UINib(nibName: "ExpenseCell", bundle: nil)
         tableView.register(cell, forCellReuseIdentifier: "ExpenseCell")

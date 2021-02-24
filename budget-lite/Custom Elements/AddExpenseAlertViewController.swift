@@ -13,6 +13,7 @@ class AddExpenseAlertViewController: UIViewController {
     @IBOutlet weak var nameTextField: CustomTextField!
     @IBOutlet weak var amountTextField: CustomTextField!
     @IBOutlet weak var actionButton: UIButton!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     var alertTitle = String()
     var actionButtonTitle = String()
@@ -39,6 +40,8 @@ class AddExpenseAlertViewController: UIViewController {
         
         titleLabel.text = alertTitle
         actionButton.setTitle(actionButtonTitle, for: .normal)
+        
+        datePicker.tintColor = UIColor(named: "main-color")
         
         mainView.layer.cornerRadius = 10
         mainView.layer.masksToBounds = true

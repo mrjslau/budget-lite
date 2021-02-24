@@ -7,7 +7,6 @@
 
 import UIKit
 
-@IBDesignable
 class CustomTextField: UITextField {
 
     override var placeholder: String? {

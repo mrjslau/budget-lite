@@ -41,7 +41,7 @@
 		77A8FE1E25E452EF001A31CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		77A8FE2025E452F0001A31CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77A8FE2325E452F0001A31CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		77A8FE2525E452F0001A31CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77A8FE2525E452F0001A31CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "budget-lite/Supporting Files/Info.plist"; sourceTree = SOURCE_ROOT; };
 		77A8FE3225E456DF001A31CA /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		77A8FE3325E456DF001A31CA /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		77A8FE3425E456DF001A31CA /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -73,6 +73,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7780E40A25E6CB7D004A80B4 /* Custom Elements */ = {
+			isa = PBXGroup;
+			children = (
+				77A8FE5725E4F4D6001A31CA /* AddExpenseAlertViewController.swift */,
+				77A8FE5425E4F4B9001A31CA /* AlertStoryboard.storyboard */,
+				77A8FE5F25E53305001A31CA /* CustomTextField.swift */,
+				7780E40C25E6CBBD004A80B4 /* Cells */,
+			);
+			path = "Custom Elements";
+			sourceTree = "<group>";
+		};
+		7780E40C25E6CBBD004A80B4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				77A8FE4725E46D8D001A31CA /* ExpenseCell.swift */,
+				77A8FE4825E46D8D001A31CA /* ExpenseCell.xib */,
+				77A8FE4F25E4EFB9001A31CA /* ExpenseSectionHeader.swift */,
+				77A8FE5025E4EFB9001A31CA /* ExpenseSectionHeader.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		7780E40D25E6CBF2004A80B4 /* Startup */ = {
+			isa = PBXGroup;
+			children = (
+				77A8FE1725E452EF001A31CA /* AppDelegate.swift */,
+				77A8FE1925E452EF001A31CA /* SceneDelegate.swift */,
+			);
+			path = Startup;
+			sourceTree = "<group>";
+		};
+		7780E40E25E6CC0C004A80B4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				77A8FE2225E452F0001A31CA /* LaunchScreen.storyboard */,
+				77A8FE2525E452F0001A31CA /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7780E40F25E6CC18004A80B4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				77A8FE3125E456C9001A31CA /* Fonts */,
+				77A8FE2025E452F0001A31CA /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7780E41025E6CC7B004A80B4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				77A8FE5B25E4FBD0001A31CA /* AlertService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		77A8FE0B25E452EF001A31CA = {
 			isa = PBXGroup;
 			children = (
@@ -92,17 +149,14 @@
 		77A8FE1625E452EF001A31CA /* budget-lite */ = {
 			isa = PBXGroup;
 			children = (
-				77A8FE1725E452EF001A31CA /* AppDelegate.swift */,
-				77A8FE1925E452EF001A31CA /* SceneDelegate.swift */,
-				77A8FE5B25E4FBD0001A31CA /* AlertService.swift */,
+				7780E40D25E6CBF2004A80B4 /* Startup */,
 				77A8FE2F25E4532E001A31CA /* Model */,
-				77A8FE2D25E4531D001A31CA /* Controller */,
 				77A8FE2C25E45318001A31CA /* View */,
-				77A8FE4C25E46D91001A31CA /* Cells */,
-				77A8FE2025E452F0001A31CA /* Assets.xcassets */,
-				77A8FE3125E456C9001A31CA /* Fonts */,
-				77A8FE2525E452F0001A31CA /* Info.plist */,
-				77A8FE5F25E53305001A31CA /* CustomTextField.swift */,
+				77A8FE2D25E4531D001A31CA /* Controller */,
+				7780E40A25E6CB7D004A80B4 /* Custom Elements */,
+				7780E41025E6CC7B004A80B4 /* Services */,
+				7780E40F25E6CC18004A80B4 /* Resources */,
+				7780E40E25E6CC0C004A80B4 /* Supporting Files */,
 			);
 			path = "budget-lite";
 			sourceTree = "<group>";
@@ -111,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				77A8FE1D25E452EF001A31CA /* Main.storyboard */,
-				77A8FE2225E452F0001A31CA /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -120,8 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				77A8FE1B25E452EF001A31CA /* OneTimeExpenseViewController.swift */,
-				77A8FE5425E4F4B9001A31CA /* AlertStoryboard.storyboard */,
-				77A8FE5725E4F4D6001A31CA /* AddExpenseAlertViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -148,17 +199,6 @@
 				77A8FE3A25E456DF001A31CA /* OpenSans-SemiBoldItalic.ttf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		77A8FE4C25E46D91001A31CA /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				77A8FE4725E46D8D001A31CA /* ExpenseCell.swift */,
-				77A8FE4825E46D8D001A31CA /* ExpenseCell.xib */,
-				77A8FE4F25E4EFB9001A31CA /* ExpenseSectionHeader.swift */,
-				77A8FE5025E4EFB9001A31CA /* ExpenseSectionHeader.xib */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,7 +440,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U7H33QQUBP;
-				INFOPLIST_FILE = "budget-lite/Info.plist";
+				INFOPLIST_FILE = "budget-lite/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -419,7 +459,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U7H33QQUBP;
-				INFOPLIST_FILE = "budget-lite/Info.plist";
+				INFOPLIST_FILE = "budget-lite/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -25,6 +25,17 @@ class CustomTextField: UITextField {
         setupUI()
     }
     
+    func changeLineColor(condition: Bool) {
+        if let bottomLine = layer.sublayers?[0] {
+            if condition {
+                bottomLine.backgroundColor = UIColor(named: "black-color-jet")?.cgColor
+            } else {
+                bottomLine.backgroundColor = UIColor(named: "accent-color")?.cgColor
+                setupPlaceholder(false)
+            }
+        }
+    }
+    
     private func setupUI() {
         backgroundColor = .white
         textColor = UIColor(named: "black-color-jet")
@@ -36,8 +47,15 @@ class CustomTextField: UITextField {
         layer.addSublayer(bottomLine)
     }
     
-    private func setupPlaceholder() {
-        let placeholderString = NSAttributedString(string: placeholder!, attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: "placeholder-color")!])
+    private func setupPlaceholder(_ condition: Bool = true) {
+        let color: UIColor
+        if condition {
+            color = UIColor(named: "placeholder-color")!
+        } else {
+            color = UIColor(named: "accent-placeholder-color")!
+        }
+        
+        let placeholderString = NSAttributedString(string: placeholder!, attributes: [NSAttributedString.Key.foregroundColor : color])
         self.attributedPlaceholder = placeholderString
     }
 }

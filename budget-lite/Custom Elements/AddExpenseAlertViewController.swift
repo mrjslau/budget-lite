@@ -41,6 +41,8 @@ class AddExpenseAlertViewController: UIViewController {
         nameTextField.returnKeyType = .done
         amountTextField.returnKeyType = .done
         
+        nameTextField.autocapitalizationType = .sentences
+        
         amountTextField.keyboardType = .decimalPad
         
         // -- Setup Labels and Buttons
@@ -86,9 +88,20 @@ class AddExpenseAlertViewController: UIViewController {
     }
     
     @IBAction func didTapActionButton(_ sender: UIButton) {
-        dismiss(animated: true)
-        buttonAction?()
+        
+        if !nameTextField.text!.isEmpty && !amountTextField.text!.isEmpty {
+            
+            dismiss(animated: true)
+            buttonAction?()
+            
+        } else {
+            nameTextField.text == "" ? nameTextField.changeLineColor(condition: false) : nameTextField.changeLineColor(condition: true)
+            
+            amountTextField.text == "" ? amountTextField.changeLineColor(condition: false) : amountTextField.changeLineColor(condition: true)
+        }
+        
     }
+    
     @IBAction func didTapCancelButton(_ sender: UIButton) {
         dismiss(animated: true)
     }

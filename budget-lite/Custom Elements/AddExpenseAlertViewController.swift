@@ -19,6 +19,8 @@ class AddExpenseAlertViewController: UIViewController {
     var actionButtonTitle = String()
     var buttonAction: (() -> Void)?
     
+    private var originalAlertTransform: CGAffineTransform?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -26,25 +28,61 @@ class AddExpenseAlertViewController: UIViewController {
         nameTextField.delegate = self
         amountTextField.delegate = self
         
-        nameTextField.returnKeyType = .done
-        amountTextField.returnKeyType = .done
+        originalAlertTransform = mainView.transform
     }
     
     private func setupView() {
+        // -- Setup Text Fields
         nameTextField.becomeFirstResponder()
         
         nameTextField.placeholder = "e.g. 'Shopping'"
         amountTextField.placeholder = "e.g. '15,50'"
         
+        nameTextField.returnKeyType = .done
+        amountTextField.returnKeyType = .done
+        
         amountTextField.keyboardType = .decimalPad
         
+        // -- Setup Labels and Buttons
         titleLabel.text = alertTitle
         actionButton.setTitle(actionButtonTitle, for: .normal)
         
+        // -- Setup Date Picker
         datePicker.tintColor = UIColor(named: "main-color")
         
+        // -- Setup Container View UI
         mainView.layer.cornerRadius = 10
         mainView.layer.masksToBounds = true
+        
+        // -- Dismiss Keyboard on Tap
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        // -- Add Keyboard Observers
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardShow(notification: NSNotification) {
+        let translateTransform = originalAlertTransform!.translatedBy(x: 0.0, y: -80.0)
+        UIView.animate(withDuration: 0.2) {
+            self.mainView.transform = translateTransform
+        }
+    }
+    
+    @objc func keyboardHide() {
+        UIView.animate(withDuration: 0.2) {
+            self.mainView.transform = self.originalAlertTransform!
+        }
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    
+    @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
+        dismiss(animated: true)
     }
     
     @IBAction func didTapActionButton(_ sender: UIButton) {

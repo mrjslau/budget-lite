@@ -9,7 +9,7 @@ import UIKit
 
 class AlertService {
     
-    func alert(title: String, buttonTitle: String, completion: @escaping () -> Void) -> AddExpenseAlertViewController {
+    func alert(title: String, buttonTitle: String, completion: @escaping (String, String, Date) -> Void) -> AddExpenseAlertViewController {
         
         let storyboard = UIStoryboard(name: "AlertStoryboard", bundle: .main)
         

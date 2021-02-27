@@ -17,7 +17,7 @@ class AddExpenseAlertViewController: UIViewController {
     
     var alertTitle = String()
     var actionButtonTitle = String()
-    var buttonAction: (() -> Void)?
+    var buttonAction: ((String, String, Date) -> Void)?
     
     private var originalAlertTransform: CGAffineTransform?
     
@@ -92,7 +92,7 @@ class AddExpenseAlertViewController: UIViewController {
         if !nameTextField.text!.isEmpty && !amountTextField.text!.isEmpty {
             
             dismiss(animated: true)
-            buttonAction?()
+            buttonAction?(nameTextField.text!, amountTextField.text!, datePicker.date)
             
         } else {
             nameTextField.text == "" ? nameTextField.changeLineColor(condition: false) : nameTextField.changeLineColor(condition: true)

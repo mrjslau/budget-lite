@@ -6,40 +6,69 @@
 //
 
 import UIKit
+import RealmSwift
 
 class OneTimeExpenseViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    let realm = try! Realm()
     let alertService = AlertService()
     
-    let expenses = [
-        ["sum" : 13.56, "name" : "Maxima"],
-        ["sum" : 15.00, "name" : "Rimi"],
-        ["sum" : 3.10, "name" : "Taxi"]
-    ]
+    var spendingDates: Results<SpendingDate>?
+    var expenses: Results<Expense>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        registerCustomCells()
-        tableView.rowHeight = 50
+        loadRealmData()
+        
+        setupTableView()
     }
 
+    
+    // Add new expense
 
     @IBAction func addButtonPressed(_ sender: Any) {
-        let alertVC = alertService.alert(title: "Add Expense", buttonTitle: "Add") {
-            print("Add tapped")
+        let alertVC = alertService.alert(title: "Add Expense", buttonTitle: "Add") { (title, amount, date) in
+            do {
+                try self.realm.write {
+                    let expense = Expense()
+                    
+                    expense.name = title
+                    
+                    let newAmountString = amount.replacingOccurrences(of: ",", with: ".")
+                    let amountDouble = Double(newAmountString)!
+                    expense.amount = amountDouble
+                    
+                    let spendingDate = SpendingDate()
+                    spendingDate.date = date
+                    
+                    
+                    self.realm.add(spendingDate)
+                    spendingDate.expenses.append(expense)
+                    
+                    self.tableView.reloadData()
+                }
+            } catch {
+                print("Error writing new object to realm, \(error)")
+            }
         }
         self.present(alertVC, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    private func loadRealmData() {
+        spendingDates = realm.objects(SpendingDate.self)
+        expenses = realm.objects(Expense.self)
     }
 }
 
 extension OneTimeExpenseViewController: UITableViewDelegate, UITableViewDataSource {
     // Sections
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return spendingDates?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -48,19 +77,20 @@ extension OneTimeExpenseViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SectionHeader") as! ExpenseSectionHeader
-        cell.dateLabel.text = "23FEB"
+        let dateFormatter = DateFormatter()
+        cell.dateLabel.text = dateFormatter.string(from: spendingDates?[section].date ?? Date(timeIntervalSinceNow: .zero))
         return cell.contentView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expenses.count
+        return expenses?.count ?? 1
     }
     
     // Cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as! ExpenseCell
-        cell.nameLabel.text = expenses[indexPath.row]["name"] as? String
-        cell.totalLabel.text = String((expenses[indexPath.row]["sum"] as? Double)!)
+        cell.nameLabel.text = expenses?[indexPath.row].name ?? "Add new expense"
+        cell.totalLabel.text = String(expenses?[indexPath.row].amount ?? 0.0)
         return cell
     }
     
@@ -70,6 +100,14 @@ extension OneTimeExpenseViewController: UITableViewDelegate, UITableViewDataSour
         tableView.register(cell, forCellReuseIdentifier: "ExpenseCell")
         let header = UINib(nibName: "ExpenseSectionHeader", bundle: nil)
         tableView.register(header, forCellReuseIdentifier: "SectionHeader")
+    }
+    
+    // Setup Table View
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        registerCustomCells()
+        tableView.rowHeight = 50
     }
     
 }

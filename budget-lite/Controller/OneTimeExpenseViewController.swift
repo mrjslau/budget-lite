@@ -45,14 +45,24 @@ class OneTimeExpenseViewController: UIViewController {
                     let amountDouble = Double(newAmountString)!
                     expense.amount = amountDouble
                     
-                    let spendingDate = SpendingDate()
-                    spendingDate.year = date.get(.year)
-                    spendingDate.month = date.get(.month)
-                    spendingDate.day = date.get(.day)
+                    var exists = false
                     
+                    for record in self.spendingDates! {
+                        if record.day == date.get(.day) && record.month == date.get(.month) && record.year == date.get(.year){
+                            record.expenses.append(expense)
+                            exists = true
+                            break
+                        }
+                    }
                     
-                    self.realm.add(spendingDate)
-                    spendingDate.expenses.append(expense)
+                    if !exists {
+                        let spendingDate = SpendingDate()
+                        spendingDate.year = date.get(.year)
+                        spendingDate.month = date.get(.month)
+                        spendingDate.day = date.get(.day)
+                        self.realm.add(spendingDate)
+                        spendingDate.expenses.append(expense)
+                    }
                     
                     self.tableView.reloadData()
                 }
@@ -86,7 +96,7 @@ extension OneTimeExpenseViewController: UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "SectionHeader") as! ExpenseSectionHeader
         
         if let date = spendingDates?[section] {
-            let monthString = Calendar.current.shortMonthSymbols[date.month].uppercased()
+            let monthString = Calendar.current.shortMonthSymbols[date.month - 1].uppercased()
             let dayString = String(date.day)
             
             cell.dateLabel.text = monthString + " " + dayString
@@ -104,8 +114,6 @@ extension OneTimeExpenseViewController: UITableViewDelegate, UITableViewDataSour
     // Cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as! ExpenseCell
-        
-        print("cell")
         
         if let date = spendingDates?[indexPath.section] {
             let expense = date.expenses[indexPath.row]

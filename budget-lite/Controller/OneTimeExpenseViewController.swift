@@ -98,14 +98,25 @@ extension OneTimeExpenseViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expenses?.count ?? 1
+        return spendingDates?[section].expenses.count ?? 1
     }
     
     // Cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as! ExpenseCell
-        cell.nameLabel.text = expenses?[indexPath.row].name ?? "Add new expense"
-        cell.totalLabel.text = String(expenses?[indexPath.row].amount ?? 0.0) + "€"
+        
+        print("cell")
+        
+        if let date = spendingDates?[indexPath.section] {
+            let expense = date.expenses[indexPath.row]
+            
+            cell.nameLabel.text = expense.name
+            cell.totalLabel.text = "-" + String(format: "%.2f", expense.amount) + "€"
+        } else {
+            cell.nameLabel.text = "Add new expense"
+            cell.totalLabel.text = "--.--€"
+        }
+        
         return cell
     }
     

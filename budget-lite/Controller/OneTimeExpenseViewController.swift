@@ -8,6 +8,12 @@
 import UIKit
 import RealmSwift
 
+extension Date {
+    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+        return calendar.component(component, from: self)
+    }
+}
+
 class OneTimeExpenseViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,8 +32,7 @@ class OneTimeExpenseViewController: UIViewController {
     }
 
     
-    // Add new expense
-
+    // Add new expense FIX same day validation FIX move from controller
     @IBAction func addButtonPressed(_ sender: Any) {
         let alertVC = alertService.alert(title: "Add Expense", buttonTitle: "Add") { (title, amount, date) in
             do {
@@ -41,7 +46,9 @@ class OneTimeExpenseViewController: UIViewController {
                     expense.amount = amountDouble
                     
                     let spendingDate = SpendingDate()
-                    spendingDate.date = date
+                    spendingDate.year = date.get(.year)
+                    spendingDate.month = date.get(.month)
+                    spendingDate.day = date.get(.day)
                     
                     
                     self.realm.add(spendingDate)
@@ -77,8 +84,16 @@ extension OneTimeExpenseViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SectionHeader") as! ExpenseSectionHeader
-        let dateFormatter = DateFormatter()
-        cell.dateLabel.text = dateFormatter.string(from: spendingDates?[section].date ?? Date(timeIntervalSinceNow: .zero))
+        
+        if let date = spendingDates?[section] {
+            let monthString = Calendar.current.shortMonthSymbols[date.month].uppercased()
+            let dayString = String(date.day)
+            
+            cell.dateLabel.text = monthString + " " + dayString
+        } else {
+            cell.dateLabel.text = "---"
+        }
+        
         return cell.contentView
     }
     
@@ -90,7 +105,7 @@ extension OneTimeExpenseViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as! ExpenseCell
         cell.nameLabel.text = expenses?[indexPath.row].name ?? "Add new expense"
-        cell.totalLabel.text = String(expenses?[indexPath.row].amount ?? 0.0)
+        cell.totalLabel.text = String(expenses?[indexPath.row].amount ?? 0.0) + "€"
         return cell
     }
     

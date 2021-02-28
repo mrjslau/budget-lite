@@ -19,6 +19,7 @@ class OneTimeExpenseViewController: UIViewController {
     
     let realm = try! Realm()
     let alertService = AlertService()
+    let realmService = RealmService.shared
     
     var spendingDates: Results<SpendingDate>?
     var expenses: Results<Expense>?
@@ -34,47 +35,9 @@ class OneTimeExpenseViewController: UIViewController {
     
     // Add new expense FIX same day validation FIX move from controller
     @IBAction func addButtonPressed(_ sender: Any) {
-        let alertVC = alertService.alert(title: "Add Expense", buttonTitle: "Add") { (title, amount, date) in
-            do {
-                try self.realm.write {
-                    let expense = Expense()
-                    
-                    expense.name = title
-                    
-                    let newAmountString = amount.replacingOccurrences(of: ",", with: ".")
-                    let amountDouble = Double(newAmountString)!
-                    expense.amount = amountDouble
-                    
-                    var exists = false
-                    
-                    for record in self.spendingDates! {
-                        if record.day == date.get(.day) && record.month == date.get(.month) && record.year == date.get(.year){
-                            record.expenses.append(expense)
-                            exists = true
-                            break
-                        }
-                    }
-                    
-                    if !exists {
-                        let spendingDate = SpendingDate()
-                        spendingDate.year = date.get(.year)
-                        spendingDate.month = date.get(.month)
-                        spendingDate.day = date.get(.day)
-                        self.realm.add(spendingDate)
-                        spendingDate.expenses.append(expense)
-                    }
-                    
-                    self.tableView.reloadData()
-                }
-            } catch {
-                print("Error writing new object to realm, \(error)")
-            }
-        }
+        let alertVC = alertService.alert(title: "Add Expense", buttonTitle: "Add", completion: realmService.getNewExpenseFunction(tableView))
         self.present(alertVC, animated: true, completion: nil)
     }
-    
-    
-    
     
     private func loadRealmData() {
         spendingDates = realm.objects(SpendingDate.self)
@@ -128,6 +91,10 @@ extension OneTimeExpenseViewController: UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     // Register Custom Views
     private func registerCustomCells() {
         let cell = UINib(nibName: "ExpenseCell", bundle: nil)
@@ -142,6 +109,7 @@ extension OneTimeExpenseViewController: UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         registerCustomCells()
         tableView.rowHeight = 50
+        tableView.allowsSelection = false
     }
     
 }

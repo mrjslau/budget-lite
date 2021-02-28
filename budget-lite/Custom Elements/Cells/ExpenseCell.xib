@@ -71,10 +71,10 @@
     </objects>
     <resources>
         <namedColor name="accent-color">
-            <color red="0.85215717550000003" green="0.2278553247" blue="0.2037786841" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.85199999809265137" green="0.22800000011920929" blue="0.20399999618530273" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="black-color-jet">
-            <color red="0.19595387580000001" green="0.18816691639999999" blue="0.19215759630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.19599999487400055" green="0.18799999356269836" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

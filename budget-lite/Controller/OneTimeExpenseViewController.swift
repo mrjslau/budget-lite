@@ -40,7 +40,8 @@ class OneTimeExpenseViewController: UIViewController {
     }
     
     private func loadRealmData() {
-        spendingDates = realm.objects(SpendingDate.self)
+        let spendingDatesSortProperties = [SortDescriptor(keyPath: "year", ascending: false), SortDescriptor(keyPath: "month", ascending: false), SortDescriptor(keyPath: "day", ascending: false)]
+        spendingDates = realm.objects(SpendingDate.self).sorted(by: spendingDatesSortProperties)
         expenses = realm.objects(Expense.self)
     }
 }

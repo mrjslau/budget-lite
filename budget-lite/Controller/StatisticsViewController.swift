@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class StatisticsViewController: UIViewController {
     @IBOutlet weak var expensesTypeLabel: UILabel!
@@ -15,7 +16,16 @@ class StatisticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        updateTotalLabel()
+    }
+    
+    func updateTotalLabel() {
+        var total: Double = 0.0
+        for expense in RealmService.shared.expenses! {
+            total += expense.amount
+        }
+    
+        totalLabel.text = "-" + String(total) + "€"
     }
 
 }

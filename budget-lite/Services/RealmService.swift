@@ -11,8 +11,8 @@ class RealmService {
     static let shared = RealmService()
     
     private let realm = try! Realm()
-    private var spendingDates: Results<SpendingDate>?
-    private var expenses: Results<Expense>?
+    var spendingDates: Results<SpendingDate>?
+    var expenses: Results<Expense>?
     
     init() {
         loadRealmData()

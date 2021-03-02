@@ -3,10 +3,16 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Light.ttf">
+            <string>OpenSans-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Expenses-->
         <scene sceneID="tne-QT-ifu">
@@ -44,14 +50,51 @@
         <!--Statistics-->
         <scene sceneID="noQ-At-Flo">
             <objects>
-                <viewController id="F23-5A-aOx" sceneMemberID="viewController">
+                <viewController id="F23-5A-aOx" customClass="StatisticsViewController" customModule="budget_lite" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pAk-0Y-EW2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="724-ho-trx" userLabel="Top Stack View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Expenses This Month " textAlignment="right" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpX-LT-dNI">
+                                        <rect key="frame" x="0.0" y="0.0" width="187" height="112"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="32"/>
+                                        <color key="textColor" name="accent-color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-157,45€" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJI-Dd-E4K">
+                                        <rect key="frame" x="227" y="0.0" width="187" height="112"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="32"/>
+                                        <color key="textColor" name="accent-color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pas-Wy-nVU">
+                                <rect key="frame" x="0.0" y="112" width="414" height="613"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="CPN-Y2-kgP"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CPN-Y2-kgP" firstAttribute="trailing" secondItem="724-ho-trx" secondAttribute="trailing" id="Fl3-WI-RzJ"/>
+                            <constraint firstItem="pas-Wy-nVU" firstAttribute="top" secondItem="724-ho-trx" secondAttribute="bottom" id="J0L-PW-oXq"/>
+                            <constraint firstItem="724-ho-trx" firstAttribute="top" secondItem="CPN-Y2-kgP" secondAttribute="top" id="LdL-wO-sxC"/>
+                            <constraint firstItem="pas-Wy-nVU" firstAttribute="trailing" secondItem="CPN-Y2-kgP" secondAttribute="trailing" id="Muz-jq-GZ2"/>
+                            <constraint firstItem="pas-Wy-nVU" firstAttribute="leading" secondItem="CPN-Y2-kgP" secondAttribute="leading" id="mqb-fO-Y9X"/>
+                            <constraint firstItem="724-ho-trx" firstAttribute="leading" secondItem="CPN-Y2-kgP" secondAttribute="leading" id="sE6-1l-AoM"/>
+                            <constraint firstItem="CPN-Y2-kgP" firstAttribute="bottom" secondItem="pas-Wy-nVU" secondAttribute="bottom" id="wnl-lG-dpR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Statistics" id="XeC-Cf-YSj"/>
+                    <connections>
+                        <outlet property="categoriesTableView" destination="pas-Wy-nVU" id="T98-iq-ggf"/>
+                        <outlet property="expensesTypeLabel" destination="LpX-LT-dNI" id="MPk-Na-mBo"/>
+                        <outlet property="totalLabel" destination="QJI-Dd-E4K" id="qPN-pX-ODR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fXh-vm-hBG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,6 +106,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="49B-eK-t2I" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="RO2-5q-Aeb">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -135,6 +179,9 @@
     <resources>
         <image name="euro-icon" width="30" height="31"/>
         <image name="stats-icon" width="32" height="32"/>
+        <namedColor name="accent-color">
+            <color red="0.85199999809265137" green="0.22800000011920929" blue="0.20399999618530273" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

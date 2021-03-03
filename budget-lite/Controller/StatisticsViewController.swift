@@ -13,19 +13,29 @@ class StatisticsViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var categoriesTableView: UITableView!
     
+    let currentYear = Date().get(.year)
+    let currentMonth = Date().get(.month)
+    let currentDay = Date().get(.day)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         updateTotalLabel()
     }
     
     func updateTotalLabel() {
-        var total: Double = 0.0
-        for expense in RealmService.shared.expenses! {
-            total += expense.amount
+        let dates = RealmService.shared.spendingDates?.filter("year == %@ AND month == %@", currentYear, currentMonth)
+        var total = 0.0
+        
+        for date in dates! {
+            for expense in date.expenses {
+                total += expense.amount
+            }
         }
     
-        totalLabel.text = "-" + String(total) + "€"
+        totalLabel.text = "-" + String(format: "%.2f", total) + "€"
     }
 
 }

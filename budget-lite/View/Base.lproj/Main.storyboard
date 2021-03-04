@@ -14,6 +14,9 @@
         <array key="OpenSans-Regular.ttf">
             <string>OpenSans-Regular</string>
         </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Expenses-->
@@ -57,49 +60,110 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="724-ho-trx" userLabel="Top Stack View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="724-ho-trx" userLabel="Main Stack View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="155"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pgL-zs-XK9">
-                                        <rect key="frame" x="0.0" y="0.0" width="187" height="160"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gDx-K0-VKl" userLabel="Top Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Expenses" textAlignment="right" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpX-LT-dNI">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="75"/>
-                                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="32"/>
-                                                <color key="textColor" name="accent-color"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvc-gR-dVi">
-                                                <rect key="frame" x="0.0" y="75" width="187" height="85"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="This Month" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nSh-YX-cw4">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" name="black-color-jet"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="28"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMF-bO-Hl6">
+                                                <rect key="frame" x="0.0" y="40" width="414" height="35"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="This Month" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pQC-el-Goi">
-                                                        <rect key="frame" x="5" y="5" width="177" height="75"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="textColor" name="accent-color"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="24"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBj-Bj-rfI">
+                                                        <rect key="frame" x="132" y="0.0" width="150" height="35"/>
+                                                        <color key="backgroundColor" red="0.1137254902" green="0.4941176471" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="Cy8-pb-ezk"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="uTl-zm-XgE"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                                        <state key="normal" title="Change Period">
+                                                            <color key="titleColor" red="0.98039215690000003" green="0.98036855460000005" blue="0.98039346930000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="changePeriodPressed:" destination="F23-5A-aOx" eventType="touchUpInside" id="tvr-dX-Oc3"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="pQC-el-Goi" secondAttribute="trailing" constant="5" id="BeH-bD-2wt"/>
-                                                    <constraint firstAttribute="bottom" secondItem="pQC-el-Goi" secondAttribute="bottom" constant="5" id="EKc-Jp-WJr"/>
-                                                    <constraint firstItem="pQC-el-Goi" firstAttribute="leading" secondItem="Jvc-gR-dVi" secondAttribute="leading" constant="5" id="WOC-MW-0BM"/>
-                                                    <constraint firstItem="pQC-el-Goi" firstAttribute="top" secondItem="Jvc-gR-dVi" secondAttribute="top" constant="5" id="cz4-dg-aWi"/>
+                                                    <constraint firstAttribute="bottom" secondItem="FBj-Bj-rfI" secondAttribute="bottom" id="3ZD-AV-myL"/>
+                                                    <constraint firstItem="FBj-Bj-rfI" firstAttribute="top" secondItem="bMF-bO-Hl6" secondAttribute="top" id="LT6-2T-ulc"/>
+                                                    <constraint firstItem="FBj-Bj-rfI" firstAttribute="centerX" secondItem="bMF-bO-Hl6" secondAttribute="centerX" id="MvR-Do-xKc"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-157,45€" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJI-Dd-E4K">
-                                        <rect key="frame" x="227" y="0.0" width="187" height="160"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="32"/>
-                                        <color key="textColor" name="accent-color"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oca-Mg-IPd" userLabel="Bottom Stack View">
+                                        <rect key="frame" x="0.0" y="80" width="414" height="75"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cph-rQ-3hp" userLabel="Left View">
+                                                <rect key="frame" x="0.0" y="0.0" width="202" height="75"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Expenses:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDO-EF-88O">
+                                                        <rect key="frame" x="0.0" y="0.0" width="202" height="35"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="yaK-jE-cTf"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="24"/>
+                                                        <color key="textColor" name="accent-color"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-57,25€" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIs-ZB-amQ">
+                                                        <rect key="frame" x="0.0" y="35" width="202" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="n3a-np-JPv"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="24"/>
+                                                        <color key="textColor" name="accent-color"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="hIs-ZB-amQ" secondAttribute="trailing" id="9lA-of-eOF"/>
+                                                    <constraint firstItem="PDO-EF-88O" firstAttribute="leading" secondItem="cph-rQ-3hp" secondAttribute="leading" id="KvO-eM-wih"/>
+                                                    <constraint firstAttribute="trailing" secondItem="PDO-EF-88O" secondAttribute="trailing" id="LYu-tT-QED"/>
+                                                    <constraint firstAttribute="bottom" secondItem="hIs-ZB-amQ" secondAttribute="bottom" id="Mn1-Cf-IT3"/>
+                                                    <constraint firstItem="hIs-ZB-amQ" firstAttribute="top" secondItem="PDO-EF-88O" secondAttribute="bottom" id="ObF-J4-V7j"/>
+                                                    <constraint firstItem="PDO-EF-88O" firstAttribute="top" secondItem="cph-rQ-3hp" secondAttribute="top" id="lPK-Of-yJg"/>
+                                                    <constraint firstItem="hIs-ZB-amQ" firstAttribute="leading" secondItem="cph-rQ-3hp" secondAttribute="leading" id="zMx-eP-Lu8"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C2m-60-aJ9" userLabel="Right View">
+                                                <rect key="frame" x="212" y="0.0" width="202" height="75"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Income:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kN0-wS-5i9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="202" height="35"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="qhv-fc-6uz"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="24"/>
+                                                        <color key="textColor" red="0.32156862749999998" green="0.68627450980000004" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="kN0-wS-5i9" secondAttribute="trailing" id="U7D-Xc-JG4"/>
+                                                    <constraint firstItem="kN0-wS-5i9" firstAttribute="leading" secondItem="C2m-60-aJ9" secondAttribute="leading" id="al2-dO-Hav"/>
+                                                    <constraint firstItem="kN0-wS-5i9" firstAttribute="top" secondItem="C2m-60-aJ9" secondAttribute="top" id="dI5-2A-a8w"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.98036855460000005" blue="0.98039346930000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pas-Wy-nVU">
-                                <rect key="frame" x="0.0" y="160" width="414" height="565"/>
+                                <rect key="frame" x="0.0" y="155" width="414" height="570"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -118,9 +182,9 @@
                     <navigationItem key="navigationItem" title="Statistics" id="XeC-Cf-YSj"/>
                     <connections>
                         <outlet property="categoriesTableView" destination="pas-Wy-nVU" id="T98-iq-ggf"/>
-                        <outlet property="expensesTypeLabel" destination="LpX-LT-dNI" id="MPk-Na-mBo"/>
-                        <outlet property="periodTextField" destination="pQC-el-Goi" id="y3G-wQ-paW"/>
-                        <outlet property="totalLabel" destination="QJI-Dd-E4K" id="qPN-pX-ODR"/>
+                        <outlet property="changePeriodButton" destination="FBj-Bj-rfI" id="owK-Jm-hKV"/>
+                        <outlet property="expensesAmountLabel" destination="hIs-ZB-amQ" id="fZF-o2-CKx"/>
+                        <outlet property="periodTextField" destination="nSh-YX-cw4" id="5fh-iS-Lp5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fXh-vm-hBG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -208,6 +272,9 @@
         <image name="stats-icon" width="32" height="32"/>
         <namedColor name="accent-color">
             <color red="0.85199999809265137" green="0.22800000011920929" blue="0.20399999618530273" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="black-color-jet">
+            <color red="0.19599999487400055" green="0.18799999356269836" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

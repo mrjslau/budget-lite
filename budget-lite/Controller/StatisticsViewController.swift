@@ -9,10 +9,10 @@ import UIKit
 import RealmSwift
 
 class StatisticsViewController: UIViewController {
-    @IBOutlet weak var expensesTypeLabel: UILabel!
-    @IBOutlet weak var totalLabel: UILabel!
-    @IBOutlet weak var categoriesTableView: UITableView!
+    @IBOutlet weak var expensesAmountLabel: UILabel!
     @IBOutlet weak var periodTextField: UITextField!
+    @IBOutlet weak var changePeriodButton: UIButton!
+    @IBOutlet weak var categoriesTableView: UITableView!
     
     var periodPicker = UIPickerView()
     
@@ -29,32 +29,33 @@ class StatisticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        periodTextField.inputView = periodPicker
-        
-        
+        setupView()
+    }
+    
+    private func setupView() {
         periodPicker.dataSource = self
         periodPicker.delegate = self
         
+        // Create Toolbar for UIPickerView
+        let periodPickerToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100.0, height: 44.0))
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.donePicker))
+        periodPickerToolbar.setItems([doneButton], animated: false)
+        periodPickerToolbar.isUserInteractionEnabled = true
         
+        periodPickerToolbar.barStyle = .default
+        periodPickerToolbar.tintColor = .white
+        periodPickerToolbar.isTranslucent = true
         
+        // Assign UIPickerView and UIToolbar to UITextField
+        periodTextField.inputView = periodPicker
+        periodTextField.inputAccessoryView = periodPickerToolbar
         
-        let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
-        toolBar.sizeToFit()
-
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.donePicker))
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.donePicker))
-
-        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-        
-        periodTextField.inputAccessoryView = toolBar
+        // Adjust UI
+        changePeriodButton.layer.masksToBounds = true
+        changePeriodButton.layer.cornerRadius = 10
     }
     
-    @objc func donePicker() {
+    @objc private func donePicker() {
         updateTotalLabel()
         periodTextField.resignFirstResponder()
     }
@@ -73,7 +74,11 @@ class StatisticsViewController: UIViewController {
             }
         }
     
-        totalLabel.text = "-" + String(format: "%.2f", total) + "€"
+        expensesAmountLabel.text = "-" + String(format: "%.2f", total) + "€"
+    }
+    
+    @IBAction func changePeriodPressed(_ sender: UIButton) {
+        periodTextField.becomeFirstResponder()
     }
 }
 
@@ -112,13 +117,9 @@ extension StatisticsViewController: UIPickerViewDataSource, UIPickerViewDelegate
             selectedMonth = row + 1
         }
         
-        //if let year = selectedYear, let _ = selectedMonth {
-        //    periodTextField.text = String(year) + "-" + months[row]
-        //    periodTextField.resignFirstResponder()
-        //
-        //
-        //    updateTotalLabel()
-        //}
+        if let year = selectedYear, let _ = selectedMonth {
+            periodTextField.text = String(year) + " - " + months[row]
+        }
     }
     
 }

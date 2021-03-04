@@ -44,7 +44,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="lightbg-color"/>
                         <constraints>
                             <constraint firstItem="rRX-E2-yki" firstAttribute="centerY" secondItem="80f-0Z-kY0" secondAttribute="centerY" id="FVZ-1Y-1pw"/>
                             <constraint firstItem="jdg-m9-ec6" firstAttribute="centerY" secondItem="80f-0Z-kY0" secondAttribute="centerY" id="Ivu-Zh-Acp"/>
@@ -75,6 +75,9 @@
         </namedColor>
         <namedColor name="black-color-jet">
             <color red="0.19599999487400055" green="0.18799999356269836" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="lightbg-color">
+            <color red="0.98000001907348633" green="0.98000001907348633" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -49,6 +49,11 @@ class StatisticsViewController: UIViewController {
         // Assign UIPickerView and UIToolbar to UITextField
         periodTextField.inputView = periodPicker
         periodTextField.inputAccessoryView = periodPickerToolbar
+        periodTextField.tintColor = .clear
+        
+        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue]
+        let attributedString = NSAttributedString(string: "This Month", attributes: underlineAttribute)
+        periodTextField.attributedText = attributedString
         
         // Adjust UI
         changePeriodButton.layer.masksToBounds = true

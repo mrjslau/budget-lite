@@ -11,11 +11,12 @@ class RealmService {
     static let shared = RealmService()
     
     private let realm = try! Realm()
-    var spendingDates: Results<SpendingDate>?
-    var expenses: Results<Expense>?
+    var spendingDates: Results<SpendingDate>
+    var expenses: Results<Expense>
     
     init() {
-        loadRealmData()
+        spendingDates = realm.objects(SpendingDate.self)
+        expenses = realm.objects(Expense.self)
     }
     
     func getNewExpenseFunction(_ tableView: UITableView) -> ((String, String, Date) -> Void) {
@@ -32,7 +33,7 @@ class RealmService {
                     
                     var exists = false
                     
-                    for record in self.spendingDates! {
+                    for record in self.spendingDates {
                         if record.day == date.get(.day) && record.month == date.get(.month) && record.year == date.get(.year) {
                             record.expenses.append(expense)
                             exists = true
@@ -57,10 +58,5 @@ class RealmService {
         }
         
         return newExpense(title:amount:date:)
-    }
-    
-    private func loadRealmData() {
-        spendingDates = realm.objects(SpendingDate.self)
-        expenses = realm.objects(Expense.self)
     }
 }

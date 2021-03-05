@@ -9,27 +9,52 @@ import UIKit
 import RealmSwift
 
 class StatisticsViewController: UIViewController {
-    @IBOutlet weak var expensesAmountLabel: UILabel!
     @IBOutlet weak var periodTextField: UITextField!
     @IBOutlet weak var changePeriodButton: UIButton!
+    @IBOutlet weak var expensesAmountLabel: UILabel!
     @IBOutlet weak var categoriesTableView: UITableView!
     
-    var periodPicker = UIPickerView()
-    
-    let currentYear = Date().get(.year)
-    let currentMonth = Date().get(.month)
-    let currentDay = Date().get(.day)
+    private var periodPicker = UIPickerView()
 
-    var years: [Int] = []
-    var months: [String] = Calendar.current.shortMonthSymbols
+    private var years: [Int] = []                                 // available years e.g. [2020, 2021]
+    private var months: [Int] = []                                // available months e.g. [1, 5, 12]
+    private let monthStrings = Calendar.current.shortMonthSymbols // zero-based 12 strings for month names
     
-    var selectedYear: Int? = Date().get(.year)
-    var selectedMonth: Int? = Date().get(.month)
+    private var selectedYear: Int = Date().get(.year)             // e.g. 2020
+    private var selectedMonth: Int = Date().get(.month)           // 1...12
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadYears()
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateTotalLabel()
+    }
+    
+    private func loadYears() {
+        for date in RealmService.shared.spendingDates {
+            if !years.contains(date.year) {
+                years.append(date.year)
+            }
+        }
+        
+        loadMonths()
+    }
+    
+    private func loadMonths() {
+        let dates = RealmService.shared.spendingDates.filter("year == %@", selectedYear)
+        
+        months = []
+        for date in dates {
+            if !months.contains(date.month) {
+                months.append(date.month)
+            }
+        }
+        
+        selectedMonth = months[0]
     }
     
     private func setupView() {
@@ -61,19 +86,14 @@ class StatisticsViewController: UIViewController {
     }
     
     @objc private func donePicker() {
-        updateTotalLabel()
         periodTextField.resignFirstResponder()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        updateTotalLabel()
-    }
-    
-    func updateTotalLabel() {
-        let dates = RealmService.shared.spendingDates?.filter("year == %@ AND month == %@", selectedYear, selectedMonth)
+    private func updateTotalLabel() {
+        let dates = RealmService.shared.spendingDates.filter("year == %@ AND month == %@", selectedYear, selectedMonth)
         var total = 0.0
         
-        for date in dates! {
+        for date in dates {
             for expense in date.expenses {
                 total += expense.amount
             }
@@ -93,12 +113,6 @@ extension StatisticsViewController: UIPickerViewDataSource, UIPickerViewDelegate
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        for date in RealmService.shared.spendingDates! {
-            if !years.contains(date.year) {
-                years.append(date.year)
-            }
-        }
-        
         if component == 0 {
             return years.count
         } else {
@@ -110,21 +124,22 @@ extension StatisticsViewController: UIPickerViewDataSource, UIPickerViewDelegate
         if component == 0 {
             return String(years[row])
         } else {
-            return months[row]
+            let monthNumeric = months[row]
+            return monthStrings[monthNumeric - 1]
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0 {
             selectedYear = years[row]
+            loadMonths()
             pickerView.reloadComponent(1)
         } else {
-            selectedMonth = row + 1
+            selectedMonth = months[row]
         }
         
-        if let year = selectedYear, let _ = selectedMonth {
-            periodTextField.text = String(year) + " - " + months[row]
-        }
+        periodTextField.text = String(selectedYear) + " - " + monthStrings[selectedMonth - 1]
+        updateTotalLabel()
     }
     
 }

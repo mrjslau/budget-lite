@@ -8,18 +8,13 @@
 import UIKit
 import RealmSwift
 
-extension Date {
-    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
-        return calendar.component(component, from: self)
-    }
-}
-
 class OneTimeExpenseViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     let realm = try! Realm()
-    let alertService = AlertService()
-    let realmService = RealmService.shared
+    private let realmService = RealmService.shared
+    private let alertService = AlertService()
     
     var spendingDates: Results<SpendingDate>?
     var expenses: Results<Expense>?
@@ -28,12 +23,13 @@ class OneTimeExpenseViewController: UIViewController {
         super.viewDidLoad()
         
         loadRealmData()
-        
-        setupTableView()
+        setupView()
     }
 
+    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+        
+    }
     
-    // Add new expense FIX same day validation FIX move from controller
     @IBAction func addButtonPressed(_ sender: Any) {
         let alertVC = alertService.alert(title: "Add Expense", buttonTitle: "Add", completion: realmService.getNewExpenseFunction(tableView))
         self.present(alertVC, animated: true, completion: nil)
@@ -43,6 +39,18 @@ class OneTimeExpenseViewController: UIViewController {
         let spendingDatesSortProperties = [SortDescriptor(keyPath: "year", ascending: false), SortDescriptor(keyPath: "month", ascending: false), SortDescriptor(keyPath: "day", ascending: false)]
         spendingDates = realm.objects(SpendingDate.self).sorted(by: spendingDatesSortProperties)
         expenses = realm.objects(Expense.self)
+    }
+    
+    private func setupView() {
+        
+        // Setup Segmented Control
+        if let font = UIFont(name: "Open Sans", size: 14) {
+            let fontAttribute: [NSAttributedString.Key: Any] = [.font : font, .foregroundColor: UIColor.white]
+            segmentedControl.setTitleTextAttributes(fontAttribute, for: .normal)
+        }
+        
+        // Setup Table View
+        setupTableView()
     }
 }
 

@@ -9,10 +9,10 @@ import UIKit
 import RealmSwift
 
 class StatisticsViewController: UIViewController {
-    @IBOutlet weak var periodTextField: UITextField!
-    @IBOutlet weak var changePeriodButton: UIButton!
-    @IBOutlet weak var expensesAmountLabel: UILabel!
-    @IBOutlet weak var categoriesTableView: UITableView!
+    @IBOutlet weak private var periodTextField: UITextField!
+    @IBOutlet weak private var changePeriodButton: UIButton!
+    @IBOutlet weak private var expensesAmountLabel: UILabel!
+    @IBOutlet weak private var categoriesTableView: UITableView!
     
     private var periodPicker = UIPickerView()
 

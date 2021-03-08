@@ -18,8 +18,11 @@ class StatisticsViewController: UIViewController {
 
     private var years: [Int] = []                                 // available years e.g. [2020, 2021]
     private var months: [Int] = []                                // available months e.g. [1, 5, 12]
-    private let monthStrings = Calendar.current.shortMonthSymbols // zero-based 12 strings for month names
+    private let monthStrings = Calendar.current.monthSymbols      // zero-based 12 strings for month names
     
+    
+    private let currentYear = Date().get(.year)
+    private let currentMonth = Date().get(.month)
     private var selectedYear: Int = Date().get(.year)             // e.g. 2020
     private var selectedMonth: Int = Date().get(.month)           // 1...12
     
@@ -34,6 +37,8 @@ class StatisticsViewController: UIViewController {
         updateTotalLabel()
         loadYears()
     }
+    
+    
     
     private func loadYears() {
         for date in RealmService.shared.spendingDates {
@@ -131,17 +136,22 @@ extension StatisticsViewController: UIPickerViewDataSource, UIPickerViewDelegate
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if component == 0 {
-            selectedYear = years[row]
-            loadMonths()
-            pickerView.reloadComponent(1)
-        } else {
-            // FIXME: ---
-            selectedMonth = months[row]
+        if !years.isEmpty && !months.isEmpty {
+            if component == 0 {
+                selectedYear = years[row]
+                loadMonths()
+                pickerView.reloadComponent(1)
+            } else {
+                selectedMonth = months[row]
+            }
+            
+            if selectedYear == currentYear && selectedMonth == currentMonth {
+                periodTextField.text = "This Month"
+            } else {
+                periodTextField.text = String(selectedYear) + " - " + monthStrings[selectedMonth - 1]
+            }
+            
+            updateTotalLabel()
         }
-        
-        periodTextField.text = String(selectedYear) + " - " + monthStrings[selectedMonth - 1]
-        updateTotalLabel()
     }
-    
 }

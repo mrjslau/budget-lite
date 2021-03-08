@@ -32,6 +32,7 @@ class StatisticsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         updateTotalLabel()
+        loadYears()
     }
     
     private func loadYears() {
@@ -54,7 +55,7 @@ class StatisticsViewController: UIViewController {
             }
         }
         
-        selectedMonth = months[0]
+        selectedMonth = months.isEmpty ? Date().get(.month) : months[0]
     }
     
     private func setupView() {
@@ -135,6 +136,7 @@ extension StatisticsViewController: UIPickerViewDataSource, UIPickerViewDelegate
             loadMonths()
             pickerView.reloadComponent(1)
         } else {
+            // FIXME: ---
             selectedMonth = months[row]
         }
         

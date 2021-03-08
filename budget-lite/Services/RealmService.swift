@@ -19,6 +19,16 @@ class RealmService {
         expenses = realm.objects(Expense.self)
     }
     
+    func deleteObject(object: Object) {
+        do {
+            try realm.write {
+                realm.delete(object)
+            }
+        } catch {
+            print("Error writing to realm, \(error)")
+        }
+    }
+    
     func getNewExpenseFunction(_ tableView: UITableView) -> ((String, String, Date) -> Void) {
         func newExpense (title: String, amount: String, date: Date) {
             do {

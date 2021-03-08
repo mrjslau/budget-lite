@@ -58,7 +58,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Expenses" id="WZi-a5-afE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gvM-7e-4L3">
+                        <barButtonItem key="rightBarButtonItem" image="x" id="gvM-7e-4L3">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="xbd-Og-56a"/>
@@ -292,6 +292,7 @@
     <resources>
         <image name="euro-icon" width="30" height="31"/>
         <image name="stats-icon" width="32" height="32"/>
+        <image name="x" width="128" height="128"/>
         <namedColor name="accent-color">
             <color red="0.85199999809265137" green="0.22800000011920929" blue="0.20399999618530273" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

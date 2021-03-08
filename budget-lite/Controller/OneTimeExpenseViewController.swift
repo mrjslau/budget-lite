@@ -112,6 +112,17 @@ extension OneTimeExpenseViewController: UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    // Custom Swipe To Delete Button
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteButton = UIContextualAction(style: .destructive, title: "") { (action, view, boolValue) in
+            self.tableView.dataSource?.tableView?(self.tableView, commit: .delete, forRowAt: indexPath)
+        }
+        deleteButton.image = UIImage(systemName: "xmark.circle.fill")
+
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteButton])
+        return swipeActions
+    }
+    
     // Register Custom Views
     private func registerCustomCells() {
         let cell = UINib(nibName: "ExpenseCell", bundle: nil)

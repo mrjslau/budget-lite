@@ -12,14 +12,47 @@ class RealmService {
     
     private let realm = try! Realm()
     var spendingDates: Results<SpendingDate>
-    var expenses: Results<Expense>
     
     init() {
-        spendingDates = realm.objects(SpendingDate.self)
-        expenses = realm.objects(Expense.self)
+        let spendingDatesSortProperties = [SortDescriptor(keyPath: "year", ascending: false), SortDescriptor(keyPath: "month", ascending: false), SortDescriptor(keyPath: "day", ascending: false)]
+        spendingDates = realm.objects(SpendingDate.self).sorted(by: spendingDatesSortProperties)
     }
     
-    func deleteObject(object: Object) {
+    func getSpendingDatesCount() -> Int {
+        return spendingDates.count
+    }
+    
+    func getOneTimeExpensesCount(forSpendingDateAt index: Int) -> Int? {
+        return spendingDates.indices.contains(index) ? spendingDates[index].expenses.count : nil
+    }
+    
+    func getSpendingDate(index: Int) -> SpendingDate? {
+        return spendingDates.indices.contains(index) ? spendingDates[index] : nil
+    }
+    
+    func getOneTimeExpense(dateIndex: Int, expenseIndex: Int) -> Expense? {
+        if spendingDates.indices.contains(dateIndex) {
+            return spendingDates[dateIndex].expenses.indices.contains(expenseIndex) ? spendingDates[dateIndex].expenses[expenseIndex] : nil
+        } else {
+            return nil
+        }
+    }
+    
+    func deleteSpendingDate(index: Int) {
+        if spendingDates.indices.contains(index) {
+            deleteObject(object: spendingDates[index])
+        }
+    }
+    
+    func deleteOneTimeExpense(dateIndex: Int, expenseIndex: Int) {
+        if spendingDates.indices.contains(dateIndex) {
+            if spendingDates[dateIndex].expenses.indices.contains(expenseIndex) {
+                deleteObject(object: spendingDates[dateIndex].expenses[expenseIndex])
+            }
+        }
+    }
+    
+    private func deleteObject(object: Object) {
         do {
             try realm.write {
                 realm.delete(object)

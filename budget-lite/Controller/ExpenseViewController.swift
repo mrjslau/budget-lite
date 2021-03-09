@@ -27,8 +27,14 @@ class ExpenseViewController: UIViewController {
     }
     
     @IBAction func addButtonPressed(_ sender: Any) {
-        let alertVC = alertService.alert(title: "Add Expense", buttonTitle: "Add", completion: realmService.getNewExpenseFunction(tableView))
-        self.present(alertVC, animated: true, completion: nil)
+        switch segmentSelected {
+        case 0:
+            let alertVC = alertService.alert(title: "Add Expense", buttonTitle: "Add", completion: realmService.getNewExpenseFunction(tableView))
+            self.present(alertVC, animated: true, completion: nil)
+        default:
+            break
+        }
+        
     }
     
     private func setupView() {

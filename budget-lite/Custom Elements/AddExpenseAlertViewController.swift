@@ -31,7 +31,7 @@ class AddExpenseAlertViewController: UIViewController {
         originalAlertTransform = mainView.transform
     }
     
-    private func setupView() {
+    internal func setupView() {
         // -- Setup Text Fields
         nameTextField.becomeFirstResponder()
         

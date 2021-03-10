@@ -29,7 +29,10 @@ class ExpenseViewController: UIViewController {
     @IBAction func addButtonPressed(_ sender: Any) {
         switch segmentSelected {
         case 0:
-            let alertVC = alertService.alert(title: "Add Expense", buttonTitle: "Add", completion: realmService.getNewExpenseFunction(tableView))
+            let alertVC = alertService.alert(title: "Add Expense", buttonTitle: "Add", type: 0, completion: realmService.getNewExpenseFunction(tableView)) as! AddExpenseAlertViewController
+            self.present(alertVC, animated: true, completion: nil)
+        case 1:
+            let alertVC = alertService.alert(title: "Add Recurring Expense", buttonTitle: "Add", type: 1, completion: realmService.getNewExpenseFunction(tableView)) as! AddRecurringExpenseAlertViewController
             self.present(alertVC, animated: true, completion: nil)
         default:
             break

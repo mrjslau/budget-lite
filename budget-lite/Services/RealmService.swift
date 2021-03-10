@@ -14,8 +14,7 @@ class RealmService {
     var spendingDates: Results<SpendingDate>
     
     init() {
-        let spendingDatesSortProperties = [SortDescriptor(keyPath: "year", ascending: false), SortDescriptor(keyPath: "month", ascending: false), SortDescriptor(keyPath: "day", ascending: false)]
-        spendingDates = realm.objects(SpendingDate.self).sorted(by: spendingDatesSortProperties)
+        spendingDates = SpendingDate.sortedByDate(ascending: false)
     }
     
     func getSpendingDatesCount() -> Int {

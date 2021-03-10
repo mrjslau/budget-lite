@@ -192,7 +192,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ABM-b6-8Mj" userLabel="MainView">
-                                <rect key="frame" x="69.5" y="272" width="275" height="352"/>
+                                <rect key="frame" x="69.5" y="254" width="275" height="388"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4m-Hp-l1f" userLabel="TopView">
                                         <rect key="frame" x="0.0" y="0.0" width="275" height="60"/>
@@ -214,7 +214,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OQI-T8-gif" userLabel="Middle Stack View">
-                                        <rect key="frame" x="16" y="76" width="243" height="200"/>
+                                        <rect key="frame" x="16" y="76" width="243" height="236"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5BS-Df-NOu" userLabel="Top Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="243" height="34"/>
@@ -273,34 +273,77 @@
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWP-hy-Ikq">
-                                                <rect key="frame" x="0.0" y="150" width="243" height="50"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0s-e7-vcu">
+                                                <rect key="frame" x="0.0" y="150" width="243" height="10"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0k7-VY-lvc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DoB-lP-wLT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="10"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="70" id="0dP-J4-VoB"/>
+                                                            <constraint firstAttribute="height" constant="10" id="Uu9-vN-E4S"/>
+                                                            <constraint firstAttribute="width" constant="70" id="YV5-Ys-RCS"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
-                                                        <color key="textColor" name="black-color-jet"/>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days untill next billing e.g. 30 = month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4L-EO-L7w">
+                                                        <rect key="frame" x="70" y="0.0" width="173" height="10"/>
+                                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="8"/>
+                                                        <color key="textColor" red="0.19595387580000001" green="0.18816691639999999" blue="0.19215759630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="xwQ-Og-m7Y">
-                                                        <rect key="frame" x="70" y="0.0" width="173" height="50"/>
-                                                        <connections>
-                                                            <action selector="datePickerValueChanged:" destination="oV4-Ht-SIC" eventType="valueChanged" id="YrP-U9-kfo"/>
-                                                        </connections>
-                                                    </datePicker>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="xwQ-Og-m7Y" firstAttribute="top" secondItem="WWP-hy-Ikq" secondAttribute="top" id="Mca-vO-F8t"/>
-                                                    <constraint firstAttribute="bottom" secondItem="xwQ-Og-m7Y" secondAttribute="bottom" id="z4a-ed-334"/>
-                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="epx-SR-qZQ">
+                                                <rect key="frame" x="0.0" y="176" width="243" height="60"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWP-hy-Ikq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="243" height="50"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0k7-VY-lvc">
+                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="70" id="0dP-J4-VoB"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
+                                                                <color key="textColor" name="black-color-jet"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="xwQ-Og-m7Y">
+                                                                <rect key="frame" x="70" y="0.0" width="173" height="50"/>
+                                                                <connections>
+                                                                    <action selector="datePickerValueChanged:" destination="oV4-Ht-SIC" eventType="valueChanged" id="YrP-U9-kfo"/>
+                                                                </connections>
+                                                            </datePicker>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="xwQ-Og-m7Y" firstAttribute="top" secondItem="WWP-hy-Ikq" secondAttribute="top" id="Mca-vO-F8t"/>
+                                                            <constraint firstAttribute="bottom" secondItem="xwQ-Og-m7Y" secondAttribute="bottom" id="z4a-ed-334"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIr-yb-0Co">
+                                                        <rect key="frame" x="0.0" y="50" width="243" height="10"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DhD-Ml-ClE">
+                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="10"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="10" id="B70-Pv-3gU"/>
+                                                                    <constraint firstAttribute="width" constant="70" id="irZ-YI-ZnY"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last billing date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHj-J6-Tt9">
+                                                                <rect key="frame" x="70" y="0.0" width="173" height="10"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="8"/>
+                                                                <color key="textColor" red="0.19595387580000001" green="0.18816691639999999" blue="0.19215759630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="g6V-go-Kw8" userLabel="Bottom Stack View">
-                                        <rect key="frame" x="0.0" y="292" width="275" height="60"/>
+                                        <rect key="frame" x="0.0" y="328" width="275" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Dq-3n-pYX">
                                                 <rect key="frame" x="0.0" y="0.0" width="137.5" height="60"/>
@@ -357,7 +400,6 @@
                         <outlet property="actionButton" destination="3Dq-3n-pYX" id="EzY-xV-Trd"/>
                         <outlet property="amountTextField" destination="ndW-Yh-dBQ" id="ygM-i9-kjG"/>
                         <outlet property="datePicker" destination="xwQ-Og-m7Y" id="SEt-sg-Mzk"/>
-                        <outlet property="dateStackView" destination="WWP-hy-Ikq" id="ysk-t7-u4n"/>
                         <outlet property="mainView" destination="ABM-b6-8Mj" id="1uD-KN-VYj"/>
                         <outlet property="nameTextField" destination="fbH-j5-6Ub" id="dUo-fZ-bL7"/>
                         <outlet property="periodTextField" destination="gYm-9o-Pud" id="KTt-4r-9Pt"/>
@@ -366,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="osC-rX-ggi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="945" y="3"/>
+            <point key="canvasLocation" x="944.92753623188412" y="2.6785714285714284"/>
         </scene>
     </scenes>
     <resources>

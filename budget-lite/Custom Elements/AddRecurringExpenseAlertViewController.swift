@@ -9,17 +9,15 @@ import UIKit
 
 class AddRecurringExpenseAlertViewController: AddExpenseAlertViewController {
     @IBOutlet weak var periodTextField: CustomTextField!
-    @IBOutlet weak var dateStackView: UIStackView!
+    
+    var addPeriodicalPaymentAction: ((String, String, String, Date) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
     
     override func setupView() {
         super.setupView()
-        dateStackView.isHidden = true
         
         periodTextField.placeholder = "e.g. '30'"
         periodTextField.returnKeyType = .done
@@ -32,7 +30,7 @@ class AddRecurringExpenseAlertViewController: AddExpenseAlertViewController {
             
             dismiss(animated: true)
             // FIX func 
-            buttonAction?(nameTextField.text!, amountTextField.text!, datePicker.date)
+            addPeriodicalPaymentAction?(nameTextField.text!, amountTextField.text!, periodTextField.text!, datePicker.date)
             
         } else {
             nameTextField.text == "" ? nameTextField.changeLineColor(condition: false) : nameTextField.changeLineColor(condition: true)

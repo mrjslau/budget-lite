@@ -101,4 +101,38 @@ class RealmService {
         
         return newExpense(title:amount:date:)
     }
+    
+    func getNewPeriodicPaymentFunction(_ tableView: UITableView) -> ((String, String, String, Date) -> Void) {
+        func newPeriodicPayment (title: String, amount: String, period: String, date: Date) {
+            do {
+                try self.realm.write {
+                    let periodicPayment = PeriodicPayment()
+                    
+                    // Set name
+                    periodicPayment.name = title
+                    
+                    // Set amount
+                    let newAmountString = amount.replacingOccurrences(of: ",", with: ".")
+                    let amountDouble = Double(newAmountString)!
+                    periodicPayment.amount = amountDouble
+                    
+                    // Set interval
+                    periodicPayment.interval = Int(period)!
+                    
+                    // Set last billing date
+                    periodicPayment.lastBillingYear = date.get(.year)
+                    periodicPayment.lastBillingMonth = date.get(.month)
+                    periodicPayment.lastBillingDay = date.get(.day)
+                    
+                    self.realm.add(periodicPayment)
+                    
+                    tableView.reloadData()
+                }
+            } catch {
+                print("Error writing new object to realm, \(error)")
+            }
+        }
+        
+        return newPeriodicPayment(title:amount:period:date:)
+    }
 }

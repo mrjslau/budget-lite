@@ -10,7 +10,7 @@
 		32CDDCA70A770B86F22658EC /* Pods_budget_lite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C8C167A45AC5597457335E /* Pods_budget_lite.framework */; };
 		771E00A225F3DE2700C0CA58 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A125F3DE2700C0CA58 /* Extensions.swift */; };
 		771E00A725F7B5E800C0CA58 /* AddRecurringExpenseAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A625F7B5E800C0CA58 /* AddRecurringExpenseAlertViewController.swift */; };
-		771E00AA25F7B71A00C0CA58 /* RecurrenceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A925F7B71A00C0CA58 /* RecurrenceType.swift */; };
+		771E00AA25F7B71A00C0CA58 /* PeriodicPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A925F7B71A00C0CA58 /* PeriodicPayment.swift */; };
 		779E2AAF25E7FBAF008B084C /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E2AAE25E7FBAF008B084C /* Expense.swift */; };
 		779E2AB625E7FE57008B084C /* SpendingDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E2AB525E7FE57008B084C /* SpendingDate.swift */; };
 		77A8FE1825E452EF001A31CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE1725E452EF001A31CA /* AppDelegate.swift */; };
@@ -46,7 +46,7 @@
 		46C8C167A45AC5597457335E /* Pods_budget_lite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_budget_lite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		771E00A125F3DE2700C0CA58 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		771E00A625F7B5E800C0CA58 /* AddRecurringExpenseAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecurringExpenseAlertViewController.swift; sourceTree = "<group>"; };
-		771E00A925F7B71A00C0CA58 /* RecurrenceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenceType.swift; sourceTree = "<group>"; };
+		771E00A925F7B71A00C0CA58 /* PeriodicPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicPayment.swift; sourceTree = "<group>"; };
 		779E2AAE25E7FBAF008B084C /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		779E2AB525E7FE57008B084C /* SpendingDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingDate.swift; sourceTree = "<group>"; };
 		77A8FE1425E452EF001A31CA /* budget-lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "budget-lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,7 +216,7 @@
 			children = (
 				779E2AB525E7FE57008B084C /* SpendingDate.swift */,
 				779E2AAE25E7FBAF008B084C /* Expense.swift */,
-				771E00A925F7B71A00C0CA58 /* RecurrenceType.swift */,
+				771E00A925F7B71A00C0CA58 /* PeriodicPayment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -384,7 +384,7 @@
 				77A8FE1C25E452EF001A31CA /* ExpenseViewController.swift in Sources */,
 				771E00A225F3DE2700C0CA58 /* Extensions.swift in Sources */,
 				779E2AAF25E7FBAF008B084C /* Expense.swift in Sources */,
-				771E00AA25F7B71A00C0CA58 /* RecurrenceType.swift in Sources */,
+				771E00AA25F7B71A00C0CA58 /* PeriodicPayment.swift in Sources */,
 				779E2AB625E7FE57008B084C /* SpendingDate.swift in Sources */,
 				77A8FE1825E452EF001A31CA /* AppDelegate.swift in Sources */,
 				77A8FE1A25E452EF001A31CA /* SceneDelegate.swift in Sources */,

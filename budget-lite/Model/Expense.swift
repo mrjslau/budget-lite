@@ -11,5 +11,4 @@ class Expense: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var amount: Double = 0.0
     var spendingDate = LinkingObjects(fromType: SpendingDate.self, property: "expenses")
-    var recurring = LinkingObjects(fromType: RecurrenceType.self, property: "expenses")
 }

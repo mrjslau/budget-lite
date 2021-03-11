@@ -8,5 +8,5 @@
 import UIKit
 
 class ExpenseSectionHeader: UITableViewCell {
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var headerLabel: UILabel!
 }

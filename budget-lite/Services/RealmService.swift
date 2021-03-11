@@ -12,9 +12,11 @@ class RealmService {
     
     private let realm = try! Realm()
     var spendingDates: Results<SpendingDate>
+    var periodicPayments: Results<PeriodicPayment>
     
     init() {
         spendingDates = SpendingDate.sortedByDate(ascending: false)
+        periodicPayments = realm.objects(PeriodicPayment.self)
     }
     
     func getSpendingDatesCount() -> Int {
@@ -23,6 +25,10 @@ class RealmService {
     
     func getOneTimeExpensesCount(forSpendingDateAt index: Int) -> Int? {
         return spendingDates.indices.contains(index) ? spendingDates[index].expenses.count : nil
+    }
+    
+    func getPeriodicPaymentsCount() -> Int {
+        return periodicPayments.count
     }
     
     func getSpendingDate(index: Int) -> SpendingDate? {
@@ -35,6 +41,10 @@ class RealmService {
         } else {
             return nil
         }
+    }
+    
+    func getPeriodicPayment(index: Int) -> PeriodicPayment? {
+        return periodicPayments.indices.contains(index) ? periodicPayments[index] : nil
     }
     
     func deleteSpendingDate(index: Int) {

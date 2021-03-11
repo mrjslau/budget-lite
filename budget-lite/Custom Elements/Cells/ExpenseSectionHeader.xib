@@ -31,14 +31,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="dateLabel" destination="EuW-ED-Bui" id="PDW-qe-eWy"/>
+                <outlet property="headerLabel" destination="EuW-ED-Bui" id="PDW-qe-eWy"/>
             </connections>
             <point key="canvasLocation" x="-17" y="66"/>
         </tableViewCell>
     </objects>
     <resources>
         <namedColor name="black-color-jet">
-            <color red="0.19595387580000001" green="0.18816691639999999" blue="0.19215759630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.19599999487400055" green="0.18799999356269836" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

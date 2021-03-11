@@ -24,15 +24,16 @@ class ExpenseViewController: UIViewController {
 
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         segmentSelected = sender.selectedSegmentIndex
+        tableView.reloadData()
     }
     
     @IBAction func addButtonPressed(_ sender: Any) {
         switch segmentSelected {
         case 0:
-            let alertVC = alertService.alert(title: "Add Expense", buttonTitle: "Add", type: 0, completion: realmService.getNewExpenseFunction(tableView)) as! AddExpenseAlertViewController
+            let alertVC = alertService.alert(title: "Add Expense", buttonTitle: "Add", completion: realmService.getNewExpenseFunction(tableView))
             self.present(alertVC, animated: true, completion: nil)
         case 1:
-            let alertVC = alertService.alert(title: "Add Recurring Expense", buttonTitle: "Add", type: 1, completion: realmService.getNewExpenseFunction(tableView)) as! AddRecurringExpenseAlertViewController
+            let alertVC = alertService.periodicAlert(title: "Add Recurring Expense", buttonTitle: "Add", completion: realmService.getNewPeriodicPaymentFunction(tableView))
             self.present(alertVC, animated: true, completion: nil)
         default:
             break
@@ -56,8 +57,16 @@ class ExpenseViewController: UIViewController {
 extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
     // Sections
     func numberOfSections(in tableView: UITableView) -> Int {
-        let count = realmService.getSpendingDatesCount()
-        return count > 0 ? count : 1
+        switch segmentSelected {
+        case 0:
+            let count = realmService.getSpendingDatesCount()
+            return count > 0 ? count : 1
+        case 1:
+            let count = realmService.getPeriodicPaymentsCount()
+            return count > 0 ? count : 1
+        default:
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -67,13 +76,20 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SectionHeader") as! ExpenseSectionHeader
         
-        if let date = realmService.getSpendingDate(index: section) {
-            let monthString = Calendar.current.shortMonthSymbols[date.month - 1].uppercased()
-            let dayString = String(date.day)
-            
-            cell.dateLabel.text = monthString + " " + dayString
-        } else {
-            cell.dateLabel.text = Calendar.current.shortMonthSymbols[Date().get(.month)] + " " + String(Date().get(.day))
+        switch segmentSelected {
+        case 0:
+            if let date = realmService.getSpendingDate(index: section) {
+                let monthString = Calendar.current.shortMonthSymbols[date.month - 1].uppercased()
+                let dayString = String(date.day)
+                
+                cell.headerLabel.text = monthString + " " + dayString
+            } else {
+                cell.headerLabel.text = Calendar.current.shortMonthSymbols[Date().get(.month)] + " " + String(Date().get(.day))
+            }
+        case 1:
+            cell.headerLabel.text = "Periodic payments"
+        default:
+            break
         }
         
         return cell.contentView

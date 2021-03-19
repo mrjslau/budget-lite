@@ -64,7 +64,7 @@
                                                         <color key="textColor" name="black-color-jet"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Parduotuvė" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wkW-gP-e4Y" customClass="CustomTextField" customModule="budget_lite" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Shopping" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wkW-gP-e4Y" customClass="CustomTextField" customModule="budget_lite" customModuleProvider="target">
                                                         <rect key="frame" x="70" y="0.0" width="173" height="34"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -183,10 +183,10 @@
             </objects>
             <point key="canvasLocation" x="-52.173913043478265" y="2.6785714285714284"/>
         </scene>
-        <!--Add Recurring Expense Alert View Controller-->
+        <!--Add Recurring Transaction AlertVC-->
         <scene sceneID="46i-4M-4Vt">
             <objects>
-                <viewController storyboardIdentifier="AddRecurringExpenseAlertVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="oV4-Ht-SIC" customClass="AddRecurringExpenseAlertViewController" customModule="budget_lite" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddRecurringExpenseAlertVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="oV4-Ht-SIC" customClass="AddRecurringTransactionAlertVC" customModule="budget_lite" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d6T-ZV-Nrd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -228,7 +228,7 @@
                                                         <color key="textColor" name="black-color-jet"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Parduotuvė" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fbH-j5-6Ub" customClass="CustomTextField" customModule="budget_lite" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Shopping" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fbH-j5-6Ub" customClass="CustomTextField" customModule="budget_lite" customModuleProvider="target">
                                                         <rect key="frame" x="70" y="0.0" width="173" height="34"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits"/>

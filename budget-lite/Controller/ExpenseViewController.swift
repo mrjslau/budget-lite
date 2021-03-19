@@ -30,10 +30,13 @@ class ExpenseViewController: UIViewController {
     @IBAction func addButtonPressed(_ sender: Any) {
         switch segmentSelected {
         case 0:
-            let alertVC = alertService.alert(title: "Add Expense", buttonTitle: "Add", completion: realmService.getNewExpenseFunction(tableView))
+            let alertVC = alertService.newTransactionAlert(title: "Add Expense", buttonTitle: "Add", completion: realmService.getNewExpenseFunction(tableView))
             self.present(alertVC, animated: true, completion: nil)
         case 1:
-            let alertVC = alertService.periodicAlert(title: "Add Recurring Expense", buttonTitle: "Add", completion: realmService.getNewPeriodicPaymentFunction(tableView))
+            let alertVC = alertService.newRecurringTransactionAlert(title: "Add Recurring Expense", buttonTitle: "Add", completion: realmService.getNewPeriodicPaymentFunction(tableView))
+            self.present(alertVC, animated: true, completion: nil)
+        case 2:
+            let alertVC = alertService.newRecurringTransactionAlert(title: "Add Recurring Expense", buttonTitle: "Add", completion: realmService.getNewPeriodicPaymentFunction(tableView))
             self.present(alertVC, animated: true, completion: nil)
         default:
             break
@@ -55,6 +58,24 @@ class ExpenseViewController: UIViewController {
 }
 
 extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    // Setup Table View
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        registerCustomCells()
+        tableView.rowHeight = 50
+        tableView.allowsSelection = false
+    }
+    
+    // Register Custom Views
+    private func registerCustomCells() {
+        let cell = UINib(nibName: "ExpenseCell", bundle: nil)
+        tableView.register(cell, forCellReuseIdentifier: "ExpenseCell")
+        let header = UINib(nibName: "ExpenseSectionHeader", bundle: nil)
+        tableView.register(header, forCellReuseIdentifier: "SectionHeader")
+    }
+    
     // Sections
     func numberOfSections(in tableView: UITableView) -> Int {
         switch segmentSelected {
@@ -62,8 +83,7 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
             let count = realmService.getSpendingDatesCount()
             return count > 0 ? count : 1
         case 1:
-            let count = realmService.getPeriodicPaymentsCount()
-            return count > 0 ? count : 1
+            return 1
         default:
             return 1
         }
@@ -97,20 +117,41 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
     
     // Cells
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return realmService.getOneTimeExpensesCount(forSpendingDateAt: section) ?? 1
+        switch segmentSelected {
+        case 0:
+            return realmService.getOneTimeExpensesCount(forSpendingDateAt: section) ?? 1
+        case 1:
+            return realmService.getPeriodicPaymentsCount()
+        default:
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as! ExpenseCell
         
-        if let date = realmService.getSpendingDate(index: indexPath.section) {
-            let expense = date.expenses[indexPath.row]
-            
-            cell.nameLabel.text = expense.name
-            cell.totalLabel.text = "-" + String(format: "%.2f", expense.amount) + "€"
-        } else {
-            cell.nameLabel.text = "Add expenses"
-            cell.totalLabel.text = "-0.00€"
+        
+        switch segmentSelected {
+        case 0:
+            if let date = realmService.getSpendingDate(index: indexPath.section) {
+                let expense = date.expenses[indexPath.row]
+                
+                cell.nameLabel.text = expense.name
+                cell.totalLabel.text = "-" + String(format: "%.2f", expense.amount) + "€"
+            } else {
+                cell.nameLabel.text = "Add expenses"
+                cell.totalLabel.text = "-0.00€"
+            }
+        case 1:
+            if let periodicPayment = realmService.getPeriodicPayment(index: indexPath.row) {
+                cell.nameLabel.text = periodicPayment.name
+                cell.totalLabel.text = String(format: "%.2f", periodicPayment.amount) + "€"
+            } else {
+                cell.nameLabel.text = "No periodic payments"
+                cell.totalLabel.text = "-0.00€"
+            }
+        default:
+            break
         }
         
         return cell
@@ -119,13 +160,23 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
     // Delete Expenses and Spending Dates with Swipe
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            realmService.deleteOneTimeExpense(dateIndex: indexPath.section, expenseIndex: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
             
-            if realmService.getOneTimeExpensesCount(forSpendingDateAt: indexPath.section) == 0 {
-                realmService.deleteSpendingDate(index: indexPath.section)
-                tableView.deleteSections([indexPath.section], with: .none)
+            switch segmentSelected {
+            case 0:
+                realmService.deleteOneTimeExpense(dateIndex: indexPath.section, expenseIndex: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+                if realmService.getOneTimeExpensesCount(forSpendingDateAt: indexPath.section) == 0 {
+                    realmService.deleteSpendingDate(index: indexPath.section)
+                    tableView.deleteSections([indexPath.section], with: .none)
+                }
+            case 1:
+                realmService.deletePeriodicPayment(index: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            default:
+                break
             }
+                
         }
     }
     
@@ -139,23 +190,5 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
         let swipeActions = UISwipeActionsConfiguration(actions: [deleteButton])
         return swipeActions
     }
-    
-    // Register Custom Views
-    private func registerCustomCells() {
-        let cell = UINib(nibName: "ExpenseCell", bundle: nil)
-        tableView.register(cell, forCellReuseIdentifier: "ExpenseCell")
-        let header = UINib(nibName: "ExpenseSectionHeader", bundle: nil)
-        tableView.register(header, forCellReuseIdentifier: "SectionHeader")
-    }
-    
-    // Setup Table View
-    private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        registerCustomCells()
-        tableView.rowHeight = 50
-        tableView.allowsSelection = false
-    }
-    
 }
 

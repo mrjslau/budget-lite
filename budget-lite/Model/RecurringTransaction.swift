@@ -7,7 +7,7 @@
 
 import RealmSwift
 
-class PeriodicPayment: Object {
+class RecurringTransaction: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var amount: Double = 0.0
     @objc dynamic var interval: Int = 0

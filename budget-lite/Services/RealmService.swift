@@ -11,12 +11,12 @@ class RealmService {
     static let shared = RealmService()
     
     private let realm = try! Realm()
-    var spendingDates: Results<SpendingDate>
-    var periodicPayments: Results<PeriodicPayment>
+    var spendingDates: Results<TransactionDate>
+    var periodicPayments: Results<RecurringTransaction>
     
     init() {
-        spendingDates = SpendingDate.sortedByDate(ascending: false)
-        periodicPayments = realm.objects(PeriodicPayment.self)
+        spendingDates = TransactionDate.sortedByDate(ascending: false)
+        periodicPayments = realm.objects(RecurringTransaction.self)
     }
     
     func getSpendingDatesCount() -> Int {
@@ -31,7 +31,7 @@ class RealmService {
         return periodicPayments.count
     }
     
-    func getSpendingDate(index: Int) -> SpendingDate? {
+    func getSpendingDate(index: Int) -> TransactionDate? {
         return spendingDates.indices.contains(index) ? spendingDates[index] : nil
     }
     
@@ -43,7 +43,7 @@ class RealmService {
         }
     }
     
-    func getPeriodicPayment(index: Int) -> PeriodicPayment? {
+    func getPeriodicPayment(index: Int) -> RecurringTransaction? {
         return periodicPayments.indices.contains(index) ? periodicPayments[index] : nil
     }
     
@@ -58,6 +58,12 @@ class RealmService {
             if spendingDates[dateIndex].expenses.indices.contains(expenseIndex) {
                 deleteObject(object: spendingDates[dateIndex].expenses[expenseIndex])
             }
+        }
+    }
+    
+    func deletePeriodicPayment(index: Int) {
+        if periodicPayments.indices.contains(index) {
+            deleteObject(object: periodicPayments[index])
         }
     }
     
@@ -94,7 +100,7 @@ class RealmService {
                     }
                     
                     if !exists {
-                        let spendingDate = SpendingDate()
+                        let spendingDate = TransactionDate()
                         spendingDate.year = date.get(.year)
                         spendingDate.month = date.get(.month)
                         spendingDate.day = date.get(.day)
@@ -116,7 +122,7 @@ class RealmService {
         func newPeriodicPayment (title: String, amount: String, period: String, date: Date) {
             do {
                 try self.realm.write {
-                    let periodicPayment = PeriodicPayment()
+                    let periodicPayment = RecurringTransaction()
                     
                     // Set name
                     periodicPayment.name = title

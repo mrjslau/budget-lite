@@ -9,11 +9,11 @@ import UIKit
 
 class AlertService {
     
-    func alert(title: String, buttonTitle: String, completion: @escaping (String, String, Date) -> Void) -> AddExpenseAlertViewController {
+    func newTransactionAlert(title: String, buttonTitle: String, completion: @escaping (String, String, Date) -> Void) -> AddTransactionAlertVC {
         
         let storyboard = UIStoryboard(name: "AlertStoryboard", bundle: .main)
         
-        let alertVC = storyboard.instantiateViewController(identifier: "AddExpenseAlertVC") as! AddExpenseAlertViewController
+        let alertVC = storyboard.instantiateViewController(identifier: "AddTransactionAlertVC") as! AddTransactionAlertVC
         
         alertVC.alertTitle = title
         alertVC.actionButtonTitle = buttonTitle
@@ -22,15 +22,15 @@ class AlertService {
         return alertVC
     }
     
-    func periodicAlert(title: String, buttonTitle: String, completion: @escaping (String, String, String, Date) -> Void) -> AddRecurringExpenseAlertViewController {
+    func newRecurringTransactionAlert(title: String, buttonTitle: String, completion: @escaping (String, String, String, Date) -> Void) -> AddRecurringTransactionAlertVC {
         
         let storyboard = UIStoryboard(name: "AlertStoryboard", bundle: .main)
         
-        let alertVC = storyboard.instantiateViewController(identifier: "AddRecurringExpenseAlertVC") as! AddRecurringExpenseAlertViewController
+        let alertVC = storyboard.instantiateViewController(identifier: "AddRecurringTransactionAlertVC") as! AddRecurringTransactionAlertVC
         
         alertVC.alertTitle = title
         alertVC.actionButtonTitle = buttonTitle
-        alertVC.addPeriodicalPaymentAction = completion
+        alertVC.addRecurringTransactionAction = completion
         
         return alertVC
     }

@@ -7,10 +7,10 @@
 
 import UIKit
 
-class AddRecurringExpenseAlertViewController: AddExpenseAlertViewController {
+class AddRecurringTransactionAlertVC: AddTransactionAlertVC {
     @IBOutlet weak var periodTextField: CustomTextField!
     
-    var addPeriodicalPaymentAction: ((String, String, String, Date) -> Void)?
+    var addRecurringTransactionAction: ((String, String, String, Date) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +29,7 @@ class AddRecurringExpenseAlertViewController: AddExpenseAlertViewController {
         if !nameTextField.text!.isEmpty && !amountTextField.text!.isEmpty && !periodTextField.text!.isEmpty {
             
             dismiss(animated: true)
-            // FIX func 
-            addPeriodicalPaymentAction?(nameTextField.text!, amountTextField.text!, periodTextField.text!, datePicker.date)
+            addRecurringTransactionAction?(nameTextField.text!, amountTextField.text!, periodTextField.text!, datePicker.date)
             
         } else {
             nameTextField.text == "" ? nameTextField.changeLineColor(condition: false) : nameTextField.changeLineColor(condition: true)

@@ -7,6 +7,6 @@
 
 import UIKit
 
-class ExpenseSectionHeader: UITableViewCell {
+class TransactionSectionHeader: UITableViewCell {
     @IBOutlet weak var headerLabel: UILabel!
 }

@@ -30,10 +30,10 @@
 		77A8FE4325E456DF001A31CA /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE3925E456DF001A31CA /* OpenSans-LightItalic.ttf */; };
 		77A8FE4425E456DF001A31CA /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE3A25E456DF001A31CA /* OpenSans-SemiBoldItalic.ttf */; };
 		77A8FE4525E456DF001A31CA /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE3B25E456DF001A31CA /* OpenSans-Light.ttf */; };
-		77A8FE4925E46D8D001A31CA /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE4725E46D8D001A31CA /* ExpenseCell.swift */; };
-		77A8FE4A25E46D8D001A31CA /* ExpenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE4825E46D8D001A31CA /* ExpenseCell.xib */; };
-		77A8FE5125E4EFB9001A31CA /* ExpenseSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE4F25E4EFB9001A31CA /* ExpenseSectionHeader.swift */; };
-		77A8FE5225E4EFB9001A31CA /* ExpenseSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE5025E4EFB9001A31CA /* ExpenseSectionHeader.xib */; };
+		77A8FE4925E46D8D001A31CA /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE4725E46D8D001A31CA /* TransactionCell.swift */; };
+		77A8FE4A25E46D8D001A31CA /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE4825E46D8D001A31CA /* TransactionCell.xib */; };
+		77A8FE5125E4EFB9001A31CA /* TransactionSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE4F25E4EFB9001A31CA /* TransactionSectionHeader.swift */; };
+		77A8FE5225E4EFB9001A31CA /* TransactionSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE5025E4EFB9001A31CA /* TransactionSectionHeader.xib */; };
 		77A8FE5825E4F4D6001A31CA /* AddTransactionAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE5725E4F4D6001A31CA /* AddTransactionAlertVC.swift */; };
 		77A8FE5C25E4FBD0001A31CA /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE5B25E4FBD0001A31CA /* AlertService.swift */; };
 		77A8FE6025E53305001A31CA /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE5F25E53305001A31CA /* CustomTextField.swift */; };
@@ -70,10 +70,10 @@
 		77A8FE3925E456DF001A31CA /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		77A8FE3A25E456DF001A31CA /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		77A8FE3B25E456DF001A31CA /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
-		77A8FE4725E46D8D001A31CA /* ExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
-		77A8FE4825E46D8D001A31CA /* ExpenseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseCell.xib; sourceTree = "<group>"; };
-		77A8FE4F25E4EFB9001A31CA /* ExpenseSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSectionHeader.swift; sourceTree = "<group>"; };
-		77A8FE5025E4EFB9001A31CA /* ExpenseSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseSectionHeader.xib; sourceTree = "<group>"; };
+		77A8FE4725E46D8D001A31CA /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		77A8FE4825E46D8D001A31CA /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
+		77A8FE4F25E4EFB9001A31CA /* TransactionSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSectionHeader.swift; sourceTree = "<group>"; };
+		77A8FE5025E4EFB9001A31CA /* TransactionSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionSectionHeader.xib; sourceTree = "<group>"; };
 		77A8FE5725E4F4D6001A31CA /* AddTransactionAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionAlertVC.swift; sourceTree = "<group>"; };
 		77A8FE5B25E4FBD0001A31CA /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		77A8FE5F25E53305001A31CA /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -118,10 +118,10 @@
 		7780E40C25E6CBBD004A80B4 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				77A8FE4725E46D8D001A31CA /* ExpenseCell.swift */,
-				77A8FE4825E46D8D001A31CA /* ExpenseCell.xib */,
-				77A8FE4F25E4EFB9001A31CA /* ExpenseSectionHeader.swift */,
-				77A8FE5025E4EFB9001A31CA /* ExpenseSectionHeader.xib */,
+				77A8FE4725E46D8D001A31CA /* TransactionCell.swift */,
+				77A8FE4825E46D8D001A31CA /* TransactionCell.xib */,
+				77A8FE4F25E4EFB9001A31CA /* TransactionSectionHeader.swift */,
+				77A8FE5025E4EFB9001A31CA /* TransactionSectionHeader.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -332,10 +332,10 @@
 				7774E4A62604E33E00CE1823 /* AlertStoryboard.storyboard in Resources */,
 				77A8FE2425E452F0001A31CA /* LaunchScreen.storyboard in Resources */,
 				77A8FE4125E456DF001A31CA /* OpenSans-ExtraBoldItalic.ttf in Resources */,
-				77A8FE5225E4EFB9001A31CA /* ExpenseSectionHeader.xib in Resources */,
+				77A8FE5225E4EFB9001A31CA /* TransactionSectionHeader.xib in Resources */,
 				77A8FE3C25E456DF001A31CA /* OpenSans-Italic.ttf in Resources */,
 				77A8FE3E25E456DF001A31CA /* OpenSans-Bold.ttf in Resources */,
-				77A8FE4A25E46D8D001A31CA /* ExpenseCell.xib in Resources */,
+				77A8FE4A25E46D8D001A31CA /* TransactionCell.xib in Resources */,
 				77A8FE4225E456DF001A31CA /* OpenSans-BoldItalic.ttf in Resources */,
 				77A8FE4325E456DF001A31CA /* OpenSans-LightItalic.ttf in Resources */,
 				77A8FE3F25E456DF001A31CA /* OpenSans-Regular.ttf in Resources */,
@@ -395,7 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77A8FE5125E4EFB9001A31CA /* ExpenseSectionHeader.swift in Sources */,
+				77A8FE5125E4EFB9001A31CA /* TransactionSectionHeader.swift in Sources */,
 				77B25DFF2604EA9E00472642 /* Constants.swift in Sources */,
 				77DBAC2725EBB5F9000061DC /* RealmService.swift in Sources */,
 				77A8FE5825E4F4D6001A31CA /* AddTransactionAlertVC.swift in Sources */,
@@ -403,7 +403,7 @@
 				771E00A725F7B5E800C0CA58 /* AddRecurringTransactionAlertVC.swift in Sources */,
 				77BB547D2604DFAC00497851 /* Income.swift in Sources */,
 				77A8FE5C25E4FBD0001A31CA /* AlertService.swift in Sources */,
-				77A8FE4925E46D8D001A31CA /* ExpenseCell.swift in Sources */,
+				77A8FE4925E46D8D001A31CA /* TransactionCell.swift in Sources */,
 				77A8FE6025E53305001A31CA /* CustomTextField.swift in Sources */,
 				77A8FE1C25E452EF001A31CA /* ExpenseViewController.swift in Sources */,
 				771E00A225F3DE2700C0CA58 /* Extensions.swift in Sources */,
@@ -569,7 +569,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "marijuslau.budget-lite";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -589,7 +589,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "marijuslau.budget-lite";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

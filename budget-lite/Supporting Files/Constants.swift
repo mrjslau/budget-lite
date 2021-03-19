@@ -6,7 +6,30 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants {
+    struct Fonts {
+        static let segmentedControl = UIFont(name: "Open Sans", size: 14)
+    }
     
+    struct Titles {
+        static let addTransaction = "Add Transaction"
+        static let addRecurringTransaction = "Add Recurring Transaction"
+        static let buttonAdd = "Add"
+    }
+    
+    struct Cells {
+        
+        struct NibNames {
+            static let transaction = "TransactionCell"
+            static let transactionHeader = "TransactionSectionHeader"
+        }
+        
+        struct ReuseIDs {
+            static let transaction = "TransactionCell"
+            static let transactionHeader = "TransactionSectionHeader"
+        }
+        
+    }
 }

@@ -28,15 +28,13 @@ class ExpenseViewController: UIViewController {
     }
     
     @IBAction func addButtonPressed(_ sender: Any) {
+        
         switch segmentSelected {
-        case 0:
-            let alertVC = alertService.newTransactionAlert(title: "Add Expense", buttonTitle: "Add", completion: realmService.getNewExpenseFunction(tableView))
+        case 0, 2:
+            let alertVC = alertService.newTransactionAlert(title: Constants.Titles.addTransaction, buttonTitle: Constants.Titles.buttonAdd, completion: realmService.getNewExpenseFunction(tableView))
             self.present(alertVC, animated: true, completion: nil)
         case 1:
-            let alertVC = alertService.newRecurringTransactionAlert(title: "Add Recurring Expense", buttonTitle: "Add", completion: realmService.getNewPeriodicPaymentFunction(tableView))
-            self.present(alertVC, animated: true, completion: nil)
-        case 2:
-            let alertVC = alertService.newRecurringTransactionAlert(title: "Add Recurring Expense", buttonTitle: "Add", completion: realmService.getNewPeriodicPaymentFunction(tableView))
+            let alertVC = alertService.newRecurringTransactionAlert(title: Constants.Titles.addRecurringTransaction, buttonTitle: Constants.Titles.buttonAdd, completion: realmService.getNewPeriodicPaymentFunction(tableView))
             self.present(alertVC, animated: true, completion: nil)
         default:
             break
@@ -47,7 +45,7 @@ class ExpenseViewController: UIViewController {
     private func setupView() {
         
         // Setup Segmented Control
-        if let font = UIFont(name: "Open Sans", size: 14) {
+        if let font = Constants.Fonts.segmentedControl {
             let fontAttribute: [NSAttributedString.Key: Any] = [.font : font, .foregroundColor: UIColor.white]
             segmentedControl.setTitleTextAttributes(fontAttribute, for: .normal)
         }
@@ -70,10 +68,10 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
     
     // Register Custom Views
     private func registerCustomCells() {
-        let cell = UINib(nibName: "ExpenseCell", bundle: nil)
-        tableView.register(cell, forCellReuseIdentifier: "ExpenseCell")
-        let header = UINib(nibName: "ExpenseSectionHeader", bundle: nil)
-        tableView.register(header, forCellReuseIdentifier: "SectionHeader")
+        let cell = UINib(nibName: Constants.Cells.NibNames.transaction, bundle: nil)
+        tableView.register(cell, forCellReuseIdentifier: Constants.Cells.ReuseIDs.transaction)
+        let header = UINib(nibName: Constants.Cells.NibNames.transactionHeader, bundle: nil)
+        tableView.register(header, forCellReuseIdentifier: Constants.Cells.ReuseIDs.transactionHeader)
     }
     
     // Sections
@@ -94,7 +92,7 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SectionHeader") as! ExpenseSectionHeader
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.ReuseIDs.transactionHeader) as! TransactionSectionHeader
         
         switch segmentSelected {
         case 0:
@@ -128,8 +126,8 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as! ExpenseCell
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.ReuseIDs.transaction, for: indexPath) as! TransactionCell
         
         switch segmentSelected {
         case 0:

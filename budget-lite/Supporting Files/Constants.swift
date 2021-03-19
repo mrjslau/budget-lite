@@ -15,6 +15,8 @@ struct Constants {
     
     struct Titles {
         static let addTransaction = "Add Transaction"
+        static let addExpense = "Add Expense"
+        static let addIncome = "Add Income"
         static let addRecurringTransaction = "Add Recurring Transaction"
         static let buttonAdd = "Add"
     }

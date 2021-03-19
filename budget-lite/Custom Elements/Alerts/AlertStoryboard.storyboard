@@ -19,10 +19,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Add Expense Alert View Controller-->
+        <!--Add Transaction AlertVC-->
         <scene sceneID="dlB-55-Mmw">
             <objects>
-                <viewController storyboardIdentifier="AddExpenseAlertVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="qXc-AH-iKF" customClass="AddExpenseAlertViewController" customModule="budget_lite" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTransactionAlertVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="qXc-AH-iKF" customClass="AddTransactionAlertVC" customModule="budget_lite" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sPY-sp-QGo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,7 +186,7 @@
         <!--Add Recurring Transaction AlertVC-->
         <scene sceneID="46i-4M-4Vt">
             <objects>
-                <viewController storyboardIdentifier="AddRecurringExpenseAlertVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="oV4-Ht-SIC" customClass="AddRecurringTransactionAlertVC" customModule="budget_lite" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddRecurringTransactionAlertVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="oV4-Ht-SIC" customClass="AddRecurringTransactionAlertVC" customModule="budget_lite" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d6T-ZV-Nrd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

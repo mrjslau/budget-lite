@@ -30,11 +30,14 @@ class ExpenseViewController: UIViewController {
     @IBAction func addButtonPressed(_ sender: Any) {
         
         switch segmentSelected {
-        case 0, 2:
-            let alertVC = alertService.newTransactionAlert(title: Constants.Titles.addTransaction, buttonTitle: Constants.Titles.buttonAdd, completion: realmService.getNewExpenseFunction(tableView))
+        case 0:
+            let alertVC = alertService.newTransactionAlert(title: Constants.Titles.addExpense, buttonTitle: Constants.Titles.buttonAdd, completion: realmService.getNewExpenseFunction(tableView))
             self.present(alertVC, animated: true, completion: nil)
         case 1:
             let alertVC = alertService.newRecurringTransactionAlert(title: Constants.Titles.addRecurringTransaction, buttonTitle: Constants.Titles.buttonAdd, completion: realmService.getNewPeriodicPaymentFunction(tableView))
+            self.present(alertVC, animated: true, completion: nil)
+        case 2:
+            let alertVC = alertService.newTransactionAlert(title: Constants.Titles.addIncome, buttonTitle: Constants.Titles.buttonAdd, completion: realmService.getNewIncomeFunction(tableView))
             self.present(alertVC, animated: true, completion: nil)
         default:
             break
@@ -78,7 +81,7 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         switch segmentSelected {
         case 0:
-            let count = realmService.getSpendingDatesCount()
+            let count = realmService.getTransactionDatesCount()
             return count > 0 ? count : 1
         case 1:
             return 1
@@ -96,7 +99,7 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch segmentSelected {
         case 0:
-            if let date = realmService.getSpendingDate(index: section) {
+            if let date = realmService.getTransactionDate(index: section) {
                 let monthString = Calendar.current.shortMonthSymbols[date.month - 1].uppercased()
                 let dayString = String(date.day)
                 
@@ -131,7 +134,7 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch segmentSelected {
         case 0:
-            if let date = realmService.getSpendingDate(index: indexPath.section) {
+            if let date = realmService.getTransactionDate(index: indexPath.section) {
                 let expense = date.expenses[indexPath.row]
                 
                 cell.nameLabel.text = expense.name
@@ -165,7 +168,7 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 
                 if realmService.getOneTimeExpensesCount(forSpendingDateAt: indexPath.section) == 0 {
-                    realmService.deleteSpendingDate(index: indexPath.section)
+                    realmService.deleteTransactionDate(index: indexPath.section)
                     tableView.deleteSections([indexPath.section], with: .none)
                 }
             case 1:

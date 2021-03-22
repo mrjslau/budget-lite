@@ -11,44 +11,59 @@ class RealmService {
     static let shared = RealmService()
     
     private let realm = try! Realm()
-    var spendingDates: Results<SpendingDate>
+    var transactionDates: Results<TransactionDate>
+    var periodicPayments: Results<RecurringTransaction>
     
     init() {
-        let spendingDatesSortProperties = [SortDescriptor(keyPath: "year", ascending: false), SortDescriptor(keyPath: "month", ascending: false), SortDescriptor(keyPath: "day", ascending: false)]
-        spendingDates = realm.objects(SpendingDate.self).sorted(by: spendingDatesSortProperties)
+        transactionDates = TransactionDate.sortedByDate(ascending: false)
+        periodicPayments = realm.objects(RecurringTransaction.self)
     }
     
-    func getSpendingDatesCount() -> Int {
-        return spendingDates.count
+    func getTransactionDatesCount() -> Int {
+        return transactionDates.count
     }
     
     func getOneTimeExpensesCount(forSpendingDateAt index: Int) -> Int? {
-        return spendingDates.indices.contains(index) ? spendingDates[index].expenses.count : nil
+        return transactionDates.indices.contains(index) ? transactionDates[index].expenses.count : nil
     }
     
-    func getSpendingDate(index: Int) -> SpendingDate? {
-        return spendingDates.indices.contains(index) ? spendingDates[index] : nil
+    func getPeriodicPaymentsCount() -> Int {
+        return periodicPayments.count
+    }
+    
+    func getTransactionDate(index: Int) -> TransactionDate? {
+        return transactionDates.indices.contains(index) ? transactionDates[index] : nil
     }
     
     func getOneTimeExpense(dateIndex: Int, expenseIndex: Int) -> Expense? {
-        if spendingDates.indices.contains(dateIndex) {
-            return spendingDates[dateIndex].expenses.indices.contains(expenseIndex) ? spendingDates[dateIndex].expenses[expenseIndex] : nil
+        if transactionDates.indices.contains(dateIndex) {
+            return transactionDates[dateIndex].expenses.indices.contains(expenseIndex) ? transactionDates[dateIndex].expenses[expenseIndex] : nil
         } else {
             return nil
         }
     }
     
-    func deleteSpendingDate(index: Int) {
-        if spendingDates.indices.contains(index) {
-            deleteObject(object: spendingDates[index])
+    func getPeriodicPayment(index: Int) -> RecurringTransaction? {
+        return periodicPayments.indices.contains(index) ? periodicPayments[index] : nil
+    }
+    
+    func deleteTransactionDate(index: Int) {
+        if transactionDates.indices.contains(index) {
+            deleteObject(object: transactionDates[index])
         }
     }
     
     func deleteOneTimeExpense(dateIndex: Int, expenseIndex: Int) {
-        if spendingDates.indices.contains(dateIndex) {
-            if spendingDates[dateIndex].expenses.indices.contains(expenseIndex) {
-                deleteObject(object: spendingDates[dateIndex].expenses[expenseIndex])
+        if transactionDates.indices.contains(dateIndex) {
+            if transactionDates[dateIndex].expenses.indices.contains(expenseIndex) {
+                deleteObject(object: transactionDates[dateIndex].expenses[expenseIndex])
             }
+        }
+    }
+    
+    func deletePeriodicPayment(index: Int) {
+        if periodicPayments.indices.contains(index) {
+            deleteObject(object: periodicPayments[index])
         }
     }
     
@@ -76,7 +91,7 @@ class RealmService {
                     
                     var exists = false
                     
-                    for record in self.spendingDates {
+                    for record in self.transactionDates {
                         if record.day == date.get(.day) && record.month == date.get(.month) && record.year == date.get(.year) {
                             record.expenses.append(expense)
                             exists = true
@@ -85,7 +100,7 @@ class RealmService {
                     }
                     
                     if !exists {
-                        let spendingDate = SpendingDate()
+                        let spendingDate = TransactionDate()
                         spendingDate.year = date.get(.year)
                         spendingDate.month = date.get(.month)
                         spendingDate.day = date.get(.day)
@@ -101,5 +116,80 @@ class RealmService {
         }
         
         return newExpense(title:amount:date:)
+    }
+    
+    func getNewIncomeFunction(_ tableView: UITableView) -> ((String, String, Date) -> Void) {
+        func newIncome (title: String, amount: String, date: Date) {
+            do {
+                try self.realm.write {
+                    let income = Income()
+                    
+                    income.name = title
+                    
+                    let newAmountString = amount.replacingOccurrences(of: ",", with: ".")
+                    let amountDouble = Double(newAmountString)!
+                    income.amount = amountDouble
+                    
+                    var exists = false
+                    
+                    for record in self.transactionDates {
+                        if record.day == date.get(.day) && record.month == date.get(.month) && record.year == date.get(.year) {
+                            record.incomes.append(income)
+                            exists = true
+                            break
+                        }
+                    }
+                    
+                    if !exists {
+                        let spendingDate = TransactionDate()
+                        spendingDate.year = date.get(.year)
+                        spendingDate.month = date.get(.month)
+                        spendingDate.day = date.get(.day)
+                        self.realm.add(spendingDate)
+                        spendingDate.incomes.append(income)
+                    }
+                    
+                    tableView.reloadData()
+                }
+            } catch {
+                print("Error writing new object to realm, \(error)")
+            }
+        }
+        
+        return newIncome(title:amount:date:)
+    }
+    
+    func getNewPeriodicPaymentFunction(_ tableView: UITableView) -> ((String, String, String, Date) -> Void) {
+        func newPeriodicPayment (title: String, amount: String, period: String, date: Date) {
+            do {
+                try self.realm.write {
+                    let periodicPayment = RecurringTransaction()
+                    
+                    // Set name
+                    periodicPayment.name = title
+                    
+                    // Set amount
+                    let newAmountString = amount.replacingOccurrences(of: ",", with: ".")
+                    let amountDouble = Double(newAmountString)!
+                    periodicPayment.amount = amountDouble
+                    
+                    // Set interval
+                    periodicPayment.interval = Int(period)!
+                    
+                    // Set last billing date
+                    periodicPayment.lastBillingYear = date.get(.year)
+                    periodicPayment.lastBillingMonth = date.get(.month)
+                    periodicPayment.lastBillingDay = date.get(.day)
+                    
+                    self.realm.add(periodicPayment)
+                    
+                    tableView.reloadData()
+                }
+            } catch {
+                print("Error writing new object to realm, \(error)")
+            }
+        }
+        
+        return newPeriodicPayment(title:amount:period:date:)
     }
 }

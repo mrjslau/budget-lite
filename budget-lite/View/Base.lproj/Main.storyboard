@@ -19,7 +19,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Expenses-->
+        <!--Transactions-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ExpenseViewController" customModule="budget_lite" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,7 +35,7 @@
                                 <rect key="frame" x="87.5" y="10" width="239" height="32"/>
                                 <color key="backgroundColor" name="main-color"/>
                                 <segments>
-                                    <segment title="One Time"/>
+                                    <segment title="Expenses"/>
                                     <segment title="Recurring"/>
                                     <segment title="Income"/>
                                 </segments>
@@ -57,7 +57,7 @@
                             <constraint firstItem="2n0-gM-WAZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="y7o-T2-HAi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Expenses" id="WZi-a5-afE">
+                    <navigationItem key="navigationItem" title="Transactions" id="WZi-a5-afE">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gvM-7e-4L3">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>

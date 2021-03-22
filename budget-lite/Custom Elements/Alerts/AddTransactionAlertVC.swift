@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddExpenseAlertViewController: UIViewController {
+class AddTransactionAlertVC: UIViewController {
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var nameTextField: CustomTextField!
@@ -31,7 +31,7 @@ class AddExpenseAlertViewController: UIViewController {
         originalAlertTransform = mainView.transform
     }
     
-    private func setupView() {
+    internal func setupView() {
         // -- Setup Text Fields
         nameTextField.becomeFirstResponder()
         
@@ -107,7 +107,7 @@ class AddExpenseAlertViewController: UIViewController {
     }
 }
 
-extension AddExpenseAlertViewController: UITextFieldDelegate {
+extension AddTransactionAlertVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         var shouldReturn = false
         if nameTextField.isFirstResponder {

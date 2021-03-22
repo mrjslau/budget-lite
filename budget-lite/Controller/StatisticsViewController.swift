@@ -41,7 +41,7 @@ class StatisticsViewController: UIViewController {
     
     
     private func loadYears() {
-        for date in RealmService.shared.spendingDates {
+        for date in RealmService.shared.transactionDates {
             if !years.contains(date.year) {
                 years.append(date.year)
             }
@@ -51,7 +51,7 @@ class StatisticsViewController: UIViewController {
     }
     
     private func loadMonths() {
-        let dates = RealmService.shared.spendingDates.filter("year == %@", selectedYear)
+        let dates = RealmService.shared.transactionDates.filter("year == %@", selectedYear)
         
         months = []
         for date in dates {
@@ -96,7 +96,7 @@ class StatisticsViewController: UIViewController {
     }
     
     private func updateTotalLabel() {
-        let dates = RealmService.shared.spendingDates.filter("year == %@ AND month == %@", selectedYear, selectedMonth)
+        let dates = RealmService.shared.transactionDates.filter("year == %@ AND month == %@", selectedYear, selectedMonth)
         var total = 0.0
         
         for date in dates {

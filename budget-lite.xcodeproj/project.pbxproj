@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		32CDDCA70A770B86F22658EC /* Pods_budget_lite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C8C167A45AC5597457335E /* Pods_budget_lite.framework */; };
 		771E00A225F3DE2700C0CA58 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A125F3DE2700C0CA58 /* Extensions.swift */; };
-		771E00A725F7B5E800C0CA58 /* AddRecurringExpenseAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A625F7B5E800C0CA58 /* AddRecurringExpenseAlertViewController.swift */; };
-		771E00AA25F7B71A00C0CA58 /* RecurrenceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A925F7B71A00C0CA58 /* RecurrenceType.swift */; };
+		771E00A725F7B5E800C0CA58 /* AddRecurringTransactionAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A625F7B5E800C0CA58 /* AddRecurringTransactionAlertVC.swift */; };
+		771E00AA25F7B71A00C0CA58 /* RecurringTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A925F7B71A00C0CA58 /* RecurringTransaction.swift */; };
+		7774E4A62604E33E00CE1823 /* AlertStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7774E4A52604E33E00CE1823 /* AlertStoryboard.storyboard */; };
 		779E2AAF25E7FBAF008B084C /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E2AAE25E7FBAF008B084C /* Expense.swift */; };
-		779E2AB625E7FE57008B084C /* SpendingDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E2AB525E7FE57008B084C /* SpendingDate.swift */; };
+		779E2AB625E7FE57008B084C /* TransactionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E2AB525E7FE57008B084C /* TransactionDate.swift */; };
 		77A8FE1825E452EF001A31CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE1725E452EF001A31CA /* AppDelegate.swift */; };
 		77A8FE1A25E452EF001A31CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE1925E452EF001A31CA /* SceneDelegate.swift */; };
 		77A8FE1C25E452EF001A31CA /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE1B25E452EF001A31CA /* ExpenseViewController.swift */; };
@@ -29,14 +30,15 @@
 		77A8FE4325E456DF001A31CA /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE3925E456DF001A31CA /* OpenSans-LightItalic.ttf */; };
 		77A8FE4425E456DF001A31CA /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE3A25E456DF001A31CA /* OpenSans-SemiBoldItalic.ttf */; };
 		77A8FE4525E456DF001A31CA /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE3B25E456DF001A31CA /* OpenSans-Light.ttf */; };
-		77A8FE4925E46D8D001A31CA /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE4725E46D8D001A31CA /* ExpenseCell.swift */; };
-		77A8FE4A25E46D8D001A31CA /* ExpenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE4825E46D8D001A31CA /* ExpenseCell.xib */; };
-		77A8FE5125E4EFB9001A31CA /* ExpenseSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE4F25E4EFB9001A31CA /* ExpenseSectionHeader.swift */; };
-		77A8FE5225E4EFB9001A31CA /* ExpenseSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE5025E4EFB9001A31CA /* ExpenseSectionHeader.xib */; };
-		77A8FE5525E4F4B9001A31CA /* AlertStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE5425E4F4B9001A31CA /* AlertStoryboard.storyboard */; };
-		77A8FE5825E4F4D6001A31CA /* AddExpenseAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE5725E4F4D6001A31CA /* AddExpenseAlertViewController.swift */; };
+		77A8FE4925E46D8D001A31CA /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE4725E46D8D001A31CA /* TransactionCell.swift */; };
+		77A8FE4A25E46D8D001A31CA /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE4825E46D8D001A31CA /* TransactionCell.xib */; };
+		77A8FE5125E4EFB9001A31CA /* TransactionSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE4F25E4EFB9001A31CA /* TransactionSectionHeader.swift */; };
+		77A8FE5225E4EFB9001A31CA /* TransactionSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A8FE5025E4EFB9001A31CA /* TransactionSectionHeader.xib */; };
+		77A8FE5825E4F4D6001A31CA /* AddTransactionAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE5725E4F4D6001A31CA /* AddTransactionAlertVC.swift */; };
 		77A8FE5C25E4FBD0001A31CA /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE5B25E4FBD0001A31CA /* AlertService.swift */; };
 		77A8FE6025E53305001A31CA /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE5F25E53305001A31CA /* CustomTextField.swift */; };
+		77B25DFF2604EA9E00472642 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B25DFE2604EA9E00472642 /* Constants.swift */; };
+		77BB547D2604DFAC00497851 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BB547C2604DFAC00497851 /* Income.swift */; };
 		77DBAC2725EBB5F9000061DC /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DBAC2625EBB5F9000061DC /* RealmService.swift */; };
 		77DBAC2A25EEC223000061DC /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DBAC2925EEC223000061DC /* StatisticsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -45,10 +47,11 @@
 		2B3DC5EA9CA9D1997E9B9623 /* Pods-budget-lite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-budget-lite.release.xcconfig"; path = "Target Support Files/Pods-budget-lite/Pods-budget-lite.release.xcconfig"; sourceTree = "<group>"; };
 		46C8C167A45AC5597457335E /* Pods_budget_lite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_budget_lite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		771E00A125F3DE2700C0CA58 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		771E00A625F7B5E800C0CA58 /* AddRecurringExpenseAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecurringExpenseAlertViewController.swift; sourceTree = "<group>"; };
-		771E00A925F7B71A00C0CA58 /* RecurrenceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenceType.swift; sourceTree = "<group>"; };
+		771E00A625F7B5E800C0CA58 /* AddRecurringTransactionAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecurringTransactionAlertVC.swift; sourceTree = "<group>"; };
+		771E00A925F7B71A00C0CA58 /* RecurringTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringTransaction.swift; sourceTree = "<group>"; };
+		7774E4A52604E33E00CE1823 /* AlertStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlertStoryboard.storyboard; sourceTree = "<group>"; };
 		779E2AAE25E7FBAF008B084C /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
-		779E2AB525E7FE57008B084C /* SpendingDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingDate.swift; sourceTree = "<group>"; };
+		779E2AB525E7FE57008B084C /* TransactionDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDate.swift; sourceTree = "<group>"; };
 		77A8FE1425E452EF001A31CA /* budget-lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "budget-lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A8FE1725E452EF001A31CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77A8FE1925E452EF001A31CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,14 +70,15 @@
 		77A8FE3925E456DF001A31CA /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		77A8FE3A25E456DF001A31CA /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		77A8FE3B25E456DF001A31CA /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
-		77A8FE4725E46D8D001A31CA /* ExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
-		77A8FE4825E46D8D001A31CA /* ExpenseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseCell.xib; sourceTree = "<group>"; };
-		77A8FE4F25E4EFB9001A31CA /* ExpenseSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSectionHeader.swift; sourceTree = "<group>"; };
-		77A8FE5025E4EFB9001A31CA /* ExpenseSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseSectionHeader.xib; sourceTree = "<group>"; };
-		77A8FE5425E4F4B9001A31CA /* AlertStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertStoryboard.storyboard; sourceTree = "<group>"; };
-		77A8FE5725E4F4D6001A31CA /* AddExpenseAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseAlertViewController.swift; sourceTree = "<group>"; };
+		77A8FE4725E46D8D001A31CA /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		77A8FE4825E46D8D001A31CA /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
+		77A8FE4F25E4EFB9001A31CA /* TransactionSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSectionHeader.swift; sourceTree = "<group>"; };
+		77A8FE5025E4EFB9001A31CA /* TransactionSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionSectionHeader.xib; sourceTree = "<group>"; };
+		77A8FE5725E4F4D6001A31CA /* AddTransactionAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionAlertVC.swift; sourceTree = "<group>"; };
 		77A8FE5B25E4FBD0001A31CA /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		77A8FE5F25E53305001A31CA /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		77B25DFE2604EA9E00472642 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		77BB547C2604DFAC00497851 /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
 		77DBAC2625EBB5F9000061DC /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		77DBAC2925EEC223000061DC /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		8D53A428972ACD02A6CB7EF1 /* Pods-budget-lite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-budget-lite.debug.xcconfig"; path = "Target Support Files/Pods-budget-lite/Pods-budget-lite.debug.xcconfig"; sourceTree = "<group>"; };
@@ -104,10 +108,8 @@
 		7780E40A25E6CB7D004A80B4 /* Custom Elements */ = {
 			isa = PBXGroup;
 			children = (
-				77A8FE5725E4F4D6001A31CA /* AddExpenseAlertViewController.swift */,
-				77A8FE5425E4F4B9001A31CA /* AlertStoryboard.storyboard */,
-				771E00A625F7B5E800C0CA58 /* AddRecurringExpenseAlertViewController.swift */,
-				77A8FE5F25E53305001A31CA /* CustomTextField.swift */,
+				77BB54822604E24400497851 /* Alerts */,
+				77BB54812604E23A00497851 /* TextFields */,
 				7780E40C25E6CBBD004A80B4 /* Cells */,
 			);
 			path = "Custom Elements";
@@ -116,10 +118,10 @@
 		7780E40C25E6CBBD004A80B4 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				77A8FE4725E46D8D001A31CA /* ExpenseCell.swift */,
-				77A8FE4825E46D8D001A31CA /* ExpenseCell.xib */,
-				77A8FE4F25E4EFB9001A31CA /* ExpenseSectionHeader.swift */,
-				77A8FE5025E4EFB9001A31CA /* ExpenseSectionHeader.xib */,
+				77A8FE4725E46D8D001A31CA /* TransactionCell.swift */,
+				77A8FE4825E46D8D001A31CA /* TransactionCell.xib */,
+				77A8FE4F25E4EFB9001A31CA /* TransactionSectionHeader.swift */,
+				77A8FE5025E4EFB9001A31CA /* TransactionSectionHeader.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -136,6 +138,7 @@
 		7780E40E25E6CC0C004A80B4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				77B25DFE2604EA9E00472642 /* Constants.swift */,
 				771E00A125F3DE2700C0CA58 /* Extensions.swift */,
 				77A8FE2225E452F0001A31CA /* LaunchScreen.storyboard */,
 				77A8FE2525E452F0001A31CA /* Info.plist */,
@@ -186,8 +189,8 @@
 				77A8FE2F25E4532E001A31CA /* Model */,
 				77A8FE2C25E45318001A31CA /* View */,
 				77A8FE2D25E4531D001A31CA /* Controller */,
-				7780E40A25E6CB7D004A80B4 /* Custom Elements */,
 				7780E41025E6CC7B004A80B4 /* Services */,
+				7780E40A25E6CB7D004A80B4 /* Custom Elements */,
 				7780E40F25E6CC18004A80B4 /* Resources */,
 				7780E40E25E6CC0C004A80B4 /* Supporting Files */,
 			);
@@ -214,9 +217,10 @@
 		77A8FE2F25E4532E001A31CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				779E2AB525E7FE57008B084C /* SpendingDate.swift */,
+				779E2AB525E7FE57008B084C /* TransactionDate.swift */,
 				779E2AAE25E7FBAF008B084C /* Expense.swift */,
-				771E00A925F7B71A00C0CA58 /* RecurrenceType.swift */,
+				77BB547C2604DFAC00497851 /* Income.swift */,
+				771E00A925F7B71A00C0CA58 /* RecurringTransaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -236,6 +240,24 @@
 				77A8FE3A25E456DF001A31CA /* OpenSans-SemiBoldItalic.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		77BB54812604E23A00497851 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				77A8FE5F25E53305001A31CA /* CustomTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		77BB54822604E24400497851 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				77A8FE5725E4F4D6001A31CA /* AddTransactionAlertVC.swift */,
+				771E00A625F7B5E800C0CA58 /* AddRecurringTransactionAlertVC.swift */,
+				7774E4A52604E33E00CE1823 /* AlertStoryboard.storyboard */,
+			);
+			path = Alerts;
 			sourceTree = "<group>";
 		};
 		9B4E13AC8256910974F86441 /* Frameworks */ = {
@@ -307,13 +329,13 @@
 			files = (
 				77A8FE4525E456DF001A31CA /* OpenSans-Light.ttf in Resources */,
 				77A8FE4425E456DF001A31CA /* OpenSans-SemiBoldItalic.ttf in Resources */,
-				77A8FE5525E4F4B9001A31CA /* AlertStoryboard.storyboard in Resources */,
+				7774E4A62604E33E00CE1823 /* AlertStoryboard.storyboard in Resources */,
 				77A8FE2425E452F0001A31CA /* LaunchScreen.storyboard in Resources */,
 				77A8FE4125E456DF001A31CA /* OpenSans-ExtraBoldItalic.ttf in Resources */,
-				77A8FE5225E4EFB9001A31CA /* ExpenseSectionHeader.xib in Resources */,
+				77A8FE5225E4EFB9001A31CA /* TransactionSectionHeader.xib in Resources */,
 				77A8FE3C25E456DF001A31CA /* OpenSans-Italic.ttf in Resources */,
 				77A8FE3E25E456DF001A31CA /* OpenSans-Bold.ttf in Resources */,
-				77A8FE4A25E46D8D001A31CA /* ExpenseCell.xib in Resources */,
+				77A8FE4A25E46D8D001A31CA /* TransactionCell.xib in Resources */,
 				77A8FE4225E456DF001A31CA /* OpenSans-BoldItalic.ttf in Resources */,
 				77A8FE4325E456DF001A31CA /* OpenSans-LightItalic.ttf in Resources */,
 				77A8FE3F25E456DF001A31CA /* OpenSans-Regular.ttf in Resources */,
@@ -373,19 +395,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77A8FE5125E4EFB9001A31CA /* ExpenseSectionHeader.swift in Sources */,
+				77A8FE5125E4EFB9001A31CA /* TransactionSectionHeader.swift in Sources */,
+				77B25DFF2604EA9E00472642 /* Constants.swift in Sources */,
 				77DBAC2725EBB5F9000061DC /* RealmService.swift in Sources */,
-				77A8FE5825E4F4D6001A31CA /* AddExpenseAlertViewController.swift in Sources */,
+				77A8FE5825E4F4D6001A31CA /* AddTransactionAlertVC.swift in Sources */,
 				77DBAC2A25EEC223000061DC /* StatisticsViewController.swift in Sources */,
-				771E00A725F7B5E800C0CA58 /* AddRecurringExpenseAlertViewController.swift in Sources */,
+				771E00A725F7B5E800C0CA58 /* AddRecurringTransactionAlertVC.swift in Sources */,
+				77BB547D2604DFAC00497851 /* Income.swift in Sources */,
 				77A8FE5C25E4FBD0001A31CA /* AlertService.swift in Sources */,
-				77A8FE4925E46D8D001A31CA /* ExpenseCell.swift in Sources */,
+				77A8FE4925E46D8D001A31CA /* TransactionCell.swift in Sources */,
 				77A8FE6025E53305001A31CA /* CustomTextField.swift in Sources */,
 				77A8FE1C25E452EF001A31CA /* ExpenseViewController.swift in Sources */,
 				771E00A225F3DE2700C0CA58 /* Extensions.swift in Sources */,
 				779E2AAF25E7FBAF008B084C /* Expense.swift in Sources */,
-				771E00AA25F7B71A00C0CA58 /* RecurrenceType.swift in Sources */,
-				779E2AB625E7FE57008B084C /* SpendingDate.swift in Sources */,
+				771E00AA25F7B71A00C0CA58 /* RecurringTransaction.swift in Sources */,
+				779E2AB625E7FE57008B084C /* TransactionDate.swift in Sources */,
 				77A8FE1825E452EF001A31CA /* AppDelegate.swift in Sources */,
 				77A8FE1A25E452EF001A31CA /* SceneDelegate.swift in Sources */,
 			);
@@ -545,7 +569,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "marijuslau.budget-lite";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -565,7 +589,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "marijuslau.budget-lite";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -12,6 +12,8 @@
 		771E00A725F7B5E800C0CA58 /* AddRecurringTransactionAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A625F7B5E800C0CA58 /* AddRecurringTransactionAlertVC.swift */; };
 		771E00AA25F7B71A00C0CA58 /* RecurringTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A925F7B71A00C0CA58 /* RecurringTransaction.swift */; };
 		7774E4A62604E33E00CE1823 /* AlertStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7774E4A52604E33E00CE1823 /* AlertStoryboard.storyboard */; };
+		778ED29F2626F8AC00053C54 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778ED29D2626F8A900053C54 /* CurrencyCell.swift */; };
+		778ED2A02626F8AC00053C54 /* CurrencyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 778ED29E2626F8AC00053C54 /* CurrencyCell.xib */; };
 		779E2AAF25E7FBAF008B084C /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E2AAE25E7FBAF008B084C /* Expense.swift */; };
 		779E2AB625E7FE57008B084C /* TransactionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779E2AB525E7FE57008B084C /* TransactionDate.swift */; };
 		77A8FE1825E452EF001A31CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE1725E452EF001A31CA /* AppDelegate.swift */; };
@@ -56,6 +58,8 @@
 		771E00A625F7B5E800C0CA58 /* AddRecurringTransactionAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecurringTransactionAlertVC.swift; sourceTree = "<group>"; };
 		771E00A925F7B71A00C0CA58 /* RecurringTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringTransaction.swift; sourceTree = "<group>"; };
 		7774E4A52604E33E00CE1823 /* AlertStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlertStoryboard.storyboard; sourceTree = "<group>"; };
+		778ED29D2626F8A900053C54 /* CurrencyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
+		778ED29E2626F8AC00053C54 /* CurrencyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrencyCell.xib; sourceTree = "<group>"; };
 		779E2AAE25E7FBAF008B084C /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		779E2AB525E7FE57008B084C /* TransactionDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDate.swift; sourceTree = "<group>"; };
 		77A8FE1425E452EF001A31CA /* budget-lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "budget-lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +138,8 @@
 				77A8FE4825E46D8D001A31CA /* TransactionCell.xib */,
 				77A8FE4F25E4EFB9001A31CA /* TransactionSectionHeader.swift */,
 				77A8FE5025E4EFB9001A31CA /* TransactionSectionHeader.xib */,
+				778ED29D2626F8A900053C54 /* CurrencyCell.swift */,
+				778ED29E2626F8AC00053C54 /* CurrencyCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -359,6 +365,7 @@
 				7774E4A62604E33E00CE1823 /* AlertStoryboard.storyboard in Resources */,
 				77A8FE2425E452F0001A31CA /* LaunchScreen.storyboard in Resources */,
 				77A8FE4125E456DF001A31CA /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				778ED2A02626F8AC00053C54 /* CurrencyCell.xib in Resources */,
 				77A8FE5225E4EFB9001A31CA /* TransactionSectionHeader.xib in Resources */,
 				77A8FE3C25E456DF001A31CA /* OpenSans-Italic.ttf in Resources */,
 				77A8FE3E25E456DF001A31CA /* OpenSans-Bold.ttf in Resources */,
@@ -448,6 +455,7 @@
 				77DBAC2725EBB5F9000061DC /* RealmService.swift in Sources */,
 				77A8FE5825E4F4D6001A31CA /* AddTransactionAlertVC.swift in Sources */,
 				77DBAC2A25EEC223000061DC /* StatisticsViewController.swift in Sources */,
+				778ED29F2626F8AC00053C54 /* CurrencyCell.swift in Sources */,
 				771E00A725F7B5E800C0CA58 /* AddRecurringTransactionAlertVC.swift in Sources */,
 				77BB547D2604DFAC00497851 /* Income.swift in Sources */,
 				77A8FE5C25E4FBD0001A31CA /* AlertService.swift in Sources */,

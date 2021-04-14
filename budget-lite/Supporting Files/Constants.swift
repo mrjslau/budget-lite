@@ -26,11 +26,13 @@ struct Constants {
         struct NibNames {
             static let transaction = "TransactionCell"
             static let transactionHeader = "TransactionSectionHeader"
+            static let exchange = "CurrencyCell"
         }
         
         struct ReuseIDs {
             static let transaction = "TransactionCell"
             static let transactionHeader = "TransactionSectionHeader"
+            static let exchange = "CurrencyCell"
         }
         
     }

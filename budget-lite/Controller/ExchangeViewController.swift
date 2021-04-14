@@ -13,6 +13,8 @@ class ExchangeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
+        
         Network.shared.apollo.fetch(query: LatestEuroQuery()) { result in
             
             print(result)
@@ -36,4 +38,32 @@ class ExchangeViewController: UIViewController {
     
     @IBAction func addCurrencyPressed(_ sender: UIBarButtonItem) {
     }
+}
+
+extension ExchangeViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        registerCustomCells()
+        tableView.rowHeight = 50
+        tableView.allowsSelection = false
+    }
+    
+    private func registerCustomCells() {
+        let nib = UINib(nibName: Constants.Cells.NibNames.exchange, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: Constants.Cells.ReuseIDs.exchange)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.ReuseIDs.exchange) as! CurrencyCell
+    
+        return cell
+    }
+    
+    
 }

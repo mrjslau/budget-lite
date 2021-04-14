@@ -109,6 +109,8 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case 1:
             cell.headerLabel.text = "Periodic payments"
+        case 2:
+            cell.headerLabel.text = "Income day"
         default:
             break
         }
@@ -123,6 +125,8 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
             return realmService.getOneTimeExpensesCount(forSpendingDateAt: section) ?? 1
         case 1:
             return realmService.getPeriodicPaymentsCount()
+        case 2:
+            return realmService.getIncomesCount(forTransactionDateAt: section) ?? 1
         default:
             return 1
         }
@@ -149,6 +153,18 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.totalLabel.text = String(format: "%.2f", periodicPayment.amount) + "€"
             } else {
                 cell.nameLabel.text = "No periodic payments"
+                cell.totalLabel.text = "-0.00€"
+            }
+        case 2:
+            cell.totalLabel.tintColor = UIColor(named: "green-color")
+            
+            if let date = realmService.getTransactionDate(index: indexPath.section) {
+                let income = date.incomes[indexPath.row]
+                
+                cell.nameLabel.text = income.name
+                cell.totalLabel.text = String(format: "%.2f", income.amount) + "€"
+            } else {
+                cell.nameLabel.text = "No incomes added yet"
                 cell.totalLabel.text = "-0.00€"
             }
         default:

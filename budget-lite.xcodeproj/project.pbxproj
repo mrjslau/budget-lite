@@ -37,10 +37,16 @@
 		77A8FE5825E4F4D6001A31CA /* AddTransactionAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE5725E4F4D6001A31CA /* AddTransactionAlertVC.swift */; };
 		77A8FE5C25E4FBD0001A31CA /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE5B25E4FBD0001A31CA /* AlertService.swift */; };
 		77A8FE6025E53305001A31CA /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8FE5F25E53305001A31CA /* CustomTextField.swift */; };
+		77B04F10260BD50800077817 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B04F0F260BD50800077817 /* WelcomeViewController.swift */; };
+		77B04F14260BD97000077817 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B04F13260BD97000077817 /* ExchangeViewController.swift */; };
 		77B25DFF2604EA9E00472642 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B25DFE2604EA9E00472642 /* Constants.swift */; };
 		77BB547D2604DFAC00497851 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BB547C2604DFAC00497851 /* Income.swift */; };
 		77DBAC2725EBB5F9000061DC /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DBAC2625EBB5F9000061DC /* RealmService.swift */; };
 		77DBAC2A25EEC223000061DC /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DBAC2925EEC223000061DC /* StatisticsViewController.swift */; };
+		77E4D4EA260BE6EA0095252F /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 77E4D4E9260BE6EA0095252F /* schema.json */; };
+		77E4D4ED260BE7430095252F /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 77E4D4EC260BE7430095252F /* Queries.graphql */; };
+		77E4D4F1260BE7550095252F /* Apollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E4D4F0260BE7550095252F /* Apollo.swift */; };
+		77E4D4FF260BF9880095252F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E4D4FE260BF9880095252F /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,10 +83,16 @@
 		77A8FE5725E4F4D6001A31CA /* AddTransactionAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionAlertVC.swift; sourceTree = "<group>"; };
 		77A8FE5B25E4FBD0001A31CA /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		77A8FE5F25E53305001A31CA /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		77B04F0F260BD50800077817 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		77B04F13260BD97000077817 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		77B25DFE2604EA9E00472642 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		77BB547C2604DFAC00497851 /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
 		77DBAC2625EBB5F9000061DC /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		77DBAC2925EEC223000061DC /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		77E4D4E9260BE6EA0095252F /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		77E4D4EC260BE7430095252F /* Queries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Queries.graphql; sourceTree = "<group>"; };
+		77E4D4F0260BE7550095252F /* Apollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apollo.swift; sourceTree = "<group>"; };
+		77E4D4FE260BF9880095252F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		8D53A428972ACD02A6CB7EF1 /* Pods-budget-lite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-budget-lite.debug.xcconfig"; path = "Target Support Files/Pods-budget-lite/Pods-budget-lite.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +170,7 @@
 		7780E41025E6CC7B004A80B4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				77B04F16260BDC9B00077817 /* GraphQL */,
 				77A8FE5B25E4FBD0001A31CA /* AlertService.swift */,
 				77DBAC2625EBB5F9000061DC /* RealmService.swift */,
 			);
@@ -208,8 +221,10 @@
 		77A8FE2D25E4531D001A31CA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				77B04F0F260BD50800077817 /* WelcomeViewController.swift */,
 				77A8FE1B25E452EF001A31CA /* ExpenseViewController.swift */,
 				77DBAC2925EEC223000061DC /* StatisticsViewController.swift */,
+				77B04F13260BD97000077817 /* ExchangeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -240,6 +255,17 @@
 				77A8FE3A25E456DF001A31CA /* OpenSans-SemiBoldItalic.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		77B04F16260BDC9B00077817 /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				77E4D4FE260BF9880095252F /* API.swift */,
+				77E4D4F0260BE7550095252F /* Apollo.swift */,
+				77E4D4EC260BE7430095252F /* Queries.graphql */,
+				77E4D4E9260BE6EA0095252F /* schema.json */,
+			);
+			path = GraphQL;
 			sourceTree = "<group>";
 		};
 		77BB54812604E23A00497851 /* TextFields */ = {
@@ -276,6 +302,7 @@
 			buildConfigurationList = 77A8FE2825E452F0001A31CA /* Build configuration list for PBXNativeTarget "budget-lite" */;
 			buildPhases = (
 				B8A69C9AA5B0BFD3EBB9A698 /* [CP] Check Pods Manifest.lock */,
+				77E4D4F4260BE8090095252F /* Generate Apollo GraphQL API */,
 				77A8FE1025E452EF001A31CA /* Sources */,
 				77A8FE1125E452EF001A31CA /* Frameworks */,
 				77A8FE1225E452EF001A31CA /* Resources */,
@@ -339,6 +366,8 @@
 				77A8FE4225E456DF001A31CA /* OpenSans-BoldItalic.ttf in Resources */,
 				77A8FE4325E456DF001A31CA /* OpenSans-LightItalic.ttf in Resources */,
 				77A8FE3F25E456DF001A31CA /* OpenSans-Regular.ttf in Resources */,
+				77E4D4ED260BE7430095252F /* Queries.graphql in Resources */,
+				77E4D4EA260BE6EA0095252F /* schema.json in Resources */,
 				77A8FE4025E456DF001A31CA /* OpenSans-SemiBold.ttf in Resources */,
 				77A8FE2125E452F0001A31CA /* Assets.xcassets in Resources */,
 				77A8FE1F25E452EF001A31CA /* Main.storyboard in Resources */,
@@ -349,6 +378,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		77E4D4F4260BE8090095252F /* Generate Apollo GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Apollo GraphQL API";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"./Services/GraphQL/schema.json\" API.swift\n";
+		};
 		7E33C00E97C30261D44CA574 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -397,6 +444,7 @@
 			files = (
 				77A8FE5125E4EFB9001A31CA /* TransactionSectionHeader.swift in Sources */,
 				77B25DFF2604EA9E00472642 /* Constants.swift in Sources */,
+				77B04F14260BD97000077817 /* ExchangeViewController.swift in Sources */,
 				77DBAC2725EBB5F9000061DC /* RealmService.swift in Sources */,
 				77A8FE5825E4F4D6001A31CA /* AddTransactionAlertVC.swift in Sources */,
 				77DBAC2A25EEC223000061DC /* StatisticsViewController.swift in Sources */,
@@ -404,9 +452,12 @@
 				77BB547D2604DFAC00497851 /* Income.swift in Sources */,
 				77A8FE5C25E4FBD0001A31CA /* AlertService.swift in Sources */,
 				77A8FE4925E46D8D001A31CA /* TransactionCell.swift in Sources */,
+				77B04F10260BD50800077817 /* WelcomeViewController.swift in Sources */,
 				77A8FE6025E53305001A31CA /* CustomTextField.swift in Sources */,
 				77A8FE1C25E452EF001A31CA /* ExpenseViewController.swift in Sources */,
+				77E4D4FF260BF9880095252F /* API.swift in Sources */,
 				771E00A225F3DE2700C0CA58 /* Extensions.swift in Sources */,
+				77E4D4F1260BE7550095252F /* Apollo.swift in Sources */,
 				779E2AAF25E7FBAF008B084C /* Expense.swift in Sources */,
 				771E00AA25F7B71A00C0CA58 /* RecurringTransaction.swift in Sources */,
 				779E2AB625E7FE57008B084C /* TransactionDate.swift in Sources */,

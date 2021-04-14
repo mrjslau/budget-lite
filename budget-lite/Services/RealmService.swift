@@ -31,6 +31,10 @@ class RealmService {
         return periodicPayments.count
     }
     
+    func getIncomesCount(forTransactionDateAt index: Int) -> Int? {
+        return transactionDates.indices.contains(index) ? transactionDates[index].incomes.count : nil
+    }
+    
     func getTransactionDate(index: Int) -> TransactionDate? {
         return transactionDates.indices.contains(index) ? transactionDates[index] : nil
     }

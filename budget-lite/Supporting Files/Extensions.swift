@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension Date {
     func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {

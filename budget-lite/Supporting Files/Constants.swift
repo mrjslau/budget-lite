@@ -34,4 +34,15 @@ struct Constants {
         }
         
     }
+    
+    struct Segues {
+        
+        static let showTransactions = "showTransactions"
+        
+    }
+    
+    struct API {
+        static let swopURL = URL(string: "https://swop.cx/graphql?api-key=7cf7389be40f62d9c4e9855ee9c597a03f853bc8d3e30db568de4c61623b4eed")!
+        static let apiKey = "7cf7389be40f62d9c4e9855ee9c597a03f853bc8d3e30db568de4c61623b4eed"
+    }
 }

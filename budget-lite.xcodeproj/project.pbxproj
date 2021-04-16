@@ -11,6 +11,8 @@
 		771E00A225F3DE2700C0CA58 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A125F3DE2700C0CA58 /* Extensions.swift */; };
 		771E00A725F7B5E800C0CA58 /* AddRecurringTransactionAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A625F7B5E800C0CA58 /* AddRecurringTransactionAlertVC.swift */; };
 		771E00AA25F7B71A00C0CA58 /* RecurringTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A925F7B71A00C0CA58 /* RecurringTransaction.swift */; };
+		775F62212629880B0030B1C1 /* ExchangeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775F62202629880B0030B1C1 /* ExchangeDataManager.swift */; };
+		775F622A2629A35F0030B1C1 /* API_keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 775F62292629A35F0030B1C1 /* API_keys.plist */; };
 		7774E4A62604E33E00CE1823 /* AlertStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7774E4A52604E33E00CE1823 /* AlertStoryboard.storyboard */; };
 		778ED29F2626F8AC00053C54 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778ED29D2626F8A900053C54 /* CurrencyCell.swift */; };
 		778ED2A02626F8AC00053C54 /* CurrencyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 778ED29E2626F8AC00053C54 /* CurrencyCell.xib */; };
@@ -57,6 +59,8 @@
 		771E00A125F3DE2700C0CA58 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		771E00A625F7B5E800C0CA58 /* AddRecurringTransactionAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecurringTransactionAlertVC.swift; sourceTree = "<group>"; };
 		771E00A925F7B71A00C0CA58 /* RecurringTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringTransaction.swift; sourceTree = "<group>"; };
+		775F62202629880B0030B1C1 /* ExchangeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDataManager.swift; sourceTree = "<group>"; };
+		775F62292629A35F0030B1C1 /* API_keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API_keys.plist; sourceTree = "<group>"; };
 		7774E4A52604E33E00CE1823 /* AlertStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlertStoryboard.storyboard; sourceTree = "<group>"; };
 		778ED29D2626F8A900053C54 /* CurrencyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
 		778ED29E2626F8AC00053C54 /* CurrencyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrencyCell.xib; sourceTree = "<group>"; };
@@ -121,6 +125,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		775F621F262987F20030B1C1 /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				775F62202629880B0030B1C1 /* ExchangeDataManager.swift */,
+			);
+			path = Exchange;
+			sourceTree = "<group>";
+		};
+		775F62282629A2C70030B1C1 /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				77B04F13260BD97000077817 /* ExchangeViewController.swift */,
+			);
+			path = Exchange;
+			sourceTree = "<group>";
+		};
 		7780E40A25E6CB7D004A80B4 /* Custom Elements */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +189,7 @@
 			children = (
 				77A8FE3125E456C9001A31CA /* Fonts */,
 				77A8FE2025E452F0001A31CA /* Assets.xcassets */,
+				775F62292629A35F0030B1C1 /* API_keys.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -230,7 +251,7 @@
 				77B04F0F260BD50800077817 /* WelcomeViewController.swift */,
 				77A8FE1B25E452EF001A31CA /* ExpenseViewController.swift */,
 				77DBAC2925EEC223000061DC /* StatisticsViewController.swift */,
-				77B04F13260BD97000077817 /* ExchangeViewController.swift */,
+				775F62282629A2C70030B1C1 /* Exchange */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -238,6 +259,7 @@
 		77A8FE2F25E4532E001A31CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				775F621F262987F20030B1C1 /* Exchange */,
 				779E2AB525E7FE57008B084C /* TransactionDate.swift */,
 				779E2AAE25E7FBAF008B084C /* Expense.swift */,
 				77BB547C2604DFAC00497851 /* Income.swift */,
@@ -373,6 +395,7 @@
 				77A8FE4225E456DF001A31CA /* OpenSans-BoldItalic.ttf in Resources */,
 				77A8FE4325E456DF001A31CA /* OpenSans-LightItalic.ttf in Resources */,
 				77A8FE3F25E456DF001A31CA /* OpenSans-Regular.ttf in Resources */,
+				775F622A2629A35F0030B1C1 /* API_keys.plist in Resources */,
 				77E4D4ED260BE7430095252F /* Queries.graphql in Resources */,
 				77E4D4EA260BE6EA0095252F /* schema.json in Resources */,
 				77A8FE4025E456DF001A31CA /* OpenSans-SemiBold.ttf in Resources */,
@@ -471,6 +494,7 @@
 				779E2AB625E7FE57008B084C /* TransactionDate.swift in Sources */,
 				77A8FE1825E452EF001A31CA /* AppDelegate.swift in Sources */,
 				77A8FE1A25E452EF001A31CA /* SceneDelegate.swift in Sources */,
+				775F62212629880B0030B1C1 /* ExchangeDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,7 +23,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="271-xC-gYN">
-                        <rect key="frame" x="10" y="10.5" width="38" height="23.5"/>
+                        <rect key="frame" x="10" y="12" width="38" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="38" id="5eJ-p0-i6X"/>
                         </constraints>
@@ -32,7 +32,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🇪🇺" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuI-BV-4PT">
-                        <rect key="frame" x="53" y="10.5" width="25" height="23.5"/>
+                        <rect key="frame" x="53" y="12" width="25" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="TOa-jd-T3S"/>
                         </constraints>
@@ -41,7 +41,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Euro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63M-eQ-Wn7">
-                        <rect key="frame" x="83" y="10.5" width="37.5" height="23.5"/>
+                        <rect key="frame" x="83" y="12" width="35" height="20"/>
                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
                         <color key="textColor" name="secondary-color"/>
                         <nil key="highlightedColor"/>

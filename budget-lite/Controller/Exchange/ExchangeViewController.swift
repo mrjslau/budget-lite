@@ -10,11 +10,18 @@ import UIKit
 class ExchangeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    var dataManager = ExchangeDataManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTableView()
         
+        dataManager.delegate = self
+        dataManager.loadData()
+        
+        
+        /*
         Network.shared.apollo.fetch(query: LatestEuroQuery()) { result in
             
             print(result)
@@ -33,10 +40,17 @@ class ExchangeViewController: UIViewController {
                 print("Error \(error)")
             }
         }
+        */
     }
     
     
     @IBAction func addCurrencyPressed(_ sender: UIBarButtonItem) {
+    }
+}
+
+extension ExchangeViewController: ExchangeDataManagerDelegate {
+    func didUpdateCurrency(_ manager: ExchangeDataManager, conversions: [String:Double]) {
+        print(conversions)
     }
 }
 

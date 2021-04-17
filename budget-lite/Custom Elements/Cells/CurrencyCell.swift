@@ -13,9 +13,14 @@ class CurrencyCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var amountTextField: UITextField!
     
-    var textFieldAction: ((Any) -> Void)?
+    var valueChangedAction: ((Any) -> Void)?
+    var editingBeginAction: ((Any) -> Void)?
+    
+    @IBAction func textFieldEditingDidBegin(_ sender: UITextField) {
+        self.editingBeginAction?(sender)
+    }
     
     @IBAction func textFieldValueChanged(_ sender: UITextField) {
-        self.textFieldAction?(sender)
+        self.valueChangedAction?(sender)
     }
 }

@@ -40,7 +40,7 @@ extension ExchangeViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.dataSource = self
         registerCustomCells()
         tableView.rowHeight = 100
-        tableView.allowsSelection = false
+        tableView.allowsSelection = true
     }
     
     private func registerCustomCells() {
@@ -60,8 +60,24 @@ extension ExchangeViewController: UITableViewDataSource, UITableViewDelegate {
         cell.flagLabel.text = Constants.Currencies.getFlag(code: currencyCode)
         cell.nameLabel.text = Constants.Currencies.getName(code: currencyCode)
         
+        cell.editingBeginAction = { sender in
+            self.exchangeData.setBaseCurrency(currency: cell.codeLabel.text!)
+            self.exchangeData.updateExchangeRates(base: cell.codeLabel.text!)
+        }
+        
+        cell.valueChangedAction = { sender in
+            
+            self.exchangeData.exchangeCurrency(currency: currencyCode, amount: 12)
+        }
+        
         return cell
     }
     
+    /// Set cell's textfield as first responder and change the base currency for conversions
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.cellForRow(at: indexPath) as! CurrencyCell
+        cell.amountTextField.becomeFirstResponder()
+    }
     
 }

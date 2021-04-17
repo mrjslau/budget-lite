@@ -56,6 +56,7 @@
                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
                         <connections>
+                            <action selector="textFieldEditingDidBegin:" destination="KGk-i7-Jjw" eventType="editingDidBegin" id="iaf-D5-KUs"/>
                             <action selector="textFieldValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="kNj-p7-Cl7"/>
                         </connections>
                     </textField>

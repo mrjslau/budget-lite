@@ -9,7 +9,7 @@ import Foundation
 
 class ExchangeDataManager {
     
-    private let baseURLString = "https://free.currconv.com/api/v7/convert?q=USD_EUR,USD_CHF"
+    private let baseURLString = "https://free.currconv.com/api/v7/convert?q="
     private let parametersURLString = "&compact=ultra&apiKey="
     
     private var currenciesString = ""
@@ -33,6 +33,7 @@ class ExchangeDataManager {
     private var exchangeURL: URL {
         get {
             let urlString = baseURLString + currenciesString + parametersURLString + apiKey
+            currenciesString = ""
             return URL(string: urlString)!
         }
     }
@@ -55,6 +56,8 @@ class ExchangeDataManager {
     func loadData(base: String, currencies: [String]) {
         
         setCurrenciesString(base: base, currencies: currencies)
+        
+        print(currenciesString)
         
         performRequest(with: exchangeURL) { (data, response, error) in
             if let safeData = data {

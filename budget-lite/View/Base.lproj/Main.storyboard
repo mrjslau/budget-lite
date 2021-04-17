@@ -323,11 +323,11 @@
             </objects>
             <point key="canvasLocation" x="1777" y="255"/>
         </scene>
-        <!--Item-->
+        <!--Exchange-->
         <scene sceneID="xbc-9n-fo4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iry-Vr-fT9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="xIH-ZA-h9C"/>
+                    <tabBarItem key="tabBarItem" title="Exchange" id="xIH-ZA-h9C"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZlS-F5-3H1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

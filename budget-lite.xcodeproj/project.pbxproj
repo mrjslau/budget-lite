@@ -11,6 +11,7 @@
 		771E00A225F3DE2700C0CA58 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A125F3DE2700C0CA58 /* Extensions.swift */; };
 		771E00A725F7B5E800C0CA58 /* AddRecurringTransactionAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A625F7B5E800C0CA58 /* AddRecurringTransactionAlertVC.swift */; };
 		771E00AA25F7B71A00C0CA58 /* RecurringTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E00A925F7B71A00C0CA58 /* RecurringTransaction.swift */; };
+		774339A4262ACE9A00D1FDA6 /* ExchangeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774339A3262ACE9A00D1FDA6 /* ExchangeData.swift */; };
 		775F62212629880B0030B1C1 /* ExchangeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775F62202629880B0030B1C1 /* ExchangeDataManager.swift */; };
 		775F622A2629A35F0030B1C1 /* API_keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 775F62292629A35F0030B1C1 /* API_keys.plist */; };
 		7774E4A62604E33E00CE1823 /* AlertStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7774E4A52604E33E00CE1823 /* AlertStoryboard.storyboard */; };
@@ -59,6 +60,7 @@
 		771E00A125F3DE2700C0CA58 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		771E00A625F7B5E800C0CA58 /* AddRecurringTransactionAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecurringTransactionAlertVC.swift; sourceTree = "<group>"; };
 		771E00A925F7B71A00C0CA58 /* RecurringTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringTransaction.swift; sourceTree = "<group>"; };
+		774339A3262ACE9A00D1FDA6 /* ExchangeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeData.swift; sourceTree = "<group>"; };
 		775F62202629880B0030B1C1 /* ExchangeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDataManager.swift; sourceTree = "<group>"; };
 		775F62292629A35F0030B1C1 /* API_keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API_keys.plist; sourceTree = "<group>"; };
 		7774E4A52604E33E00CE1823 /* AlertStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlertStoryboard.storyboard; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		775F621F262987F20030B1C1 /* Exchange */ = {
 			isa = PBXGroup;
 			children = (
+				774339A3262ACE9A00D1FDA6 /* ExchangeData.swift */,
 				775F62202629880B0030B1C1 /* ExchangeDataManager.swift */,
 			);
 			path = Exchange;
@@ -474,6 +477,7 @@
 			files = (
 				77A8FE5125E4EFB9001A31CA /* TransactionSectionHeader.swift in Sources */,
 				77B25DFF2604EA9E00472642 /* Constants.swift in Sources */,
+				774339A4262ACE9A00D1FDA6 /* ExchangeData.swift in Sources */,
 				77B04F14260BD97000077817 /* ExchangeViewController.swift in Sources */,
 				77DBAC2725EBB5F9000061DC /* RealmService.swift in Sources */,
 				77A8FE5825E4F4D6001A31CA /* AddTransactionAlertVC.swift in Sources */,

@@ -7,9 +7,12 @@
 
 import Foundation
 
-struct ExchangeDataManager {
+class ExchangeDataManager {
     
-    private let baseURLString = "https://free.currconv.com/api/v7/convert?q=USD_EUR,USD_CHF&compact=ultra&apiKey="
+    private let baseURLString = "https://free.currconv.com/api/v7/convert?q=USD_EUR,USD_CHF"
+    private let parametersURLString = "&compact=ultra&apiKey="
+    
+    private var currenciesString = ""
     
     private var apiKey: String {
         get {
@@ -29,20 +32,34 @@ struct ExchangeDataManager {
     
     private var exchangeURL: URL {
         get {
-            let urlString = baseURLString + apiKey
+            let urlString = baseURLString + currenciesString + parametersURLString + apiKey
             return URL(string: urlString)!
         }
     }
     
     var delegate: ExchangeDataManagerDelegate?
     
+    private func setCurrenciesString(base: String, currencies: [String]) {
+        currenciesString = ""
+        
+        for item in currencies {
+            if currenciesString.isEmpty {
+                currenciesString += base + "_" + item
+            } else {
+                currenciesString += "," + base + "_" + item
+            }
+        }
+    }
+    
     /// Public method for data loading
-    func loadData() {
+    func loadData(base: String, currencies: [String]) {
+        
+        setCurrenciesString(base: base, currencies: currencies)
         
         performRequest(with: exchangeURL) { (data, response, error) in
             if let safeData = data {
-                if let conversions = parseJSON(safeData) {
-                    delegate?.didUpdateCurrency(self, conversions: conversions)
+                if let conversions = self.parseJSON(safeData) {
+                    self.delegate?.didUpdateCurrency(self, conversions: conversions)
                 }
             }
         }

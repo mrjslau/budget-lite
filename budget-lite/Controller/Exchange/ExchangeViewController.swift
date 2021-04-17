@@ -10,37 +10,14 @@ import UIKit
 class ExchangeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var dataManager = ExchangeDataManager()
+    var exchangeData = ExchangeData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTableView()
         
-        dataManager.delegate = self
-        dataManager.loadData()
-        
-        
-        /*
-        Network.shared.apollo.fetch(query: LatestEuroQuery()) { result in
-            
-            print(result)
-            
-            switch result {
-            case .success(let graphQLResult):
-                
-                print(graphQLResult)
-                
-                print("GraphQL Success!")
-                
-                if let latest = graphQLResult.data?.latest {
-                    print(latest)
-                }
-            case .failure(let error):
-                print("Error \(error)")
-            }
-        }
-        */
+        exchangeData.delegate = self
     }
     
     
@@ -48,9 +25,11 @@ class ExchangeViewController: UIViewController {
     }
 }
 
-extension ExchangeViewController: ExchangeDataManagerDelegate {
-    func didUpdateCurrency(_ manager: ExchangeDataManager, conversions: [String:Double]) {
-        print(conversions)
+extension ExchangeViewController: ExchangeDataDelegate {
+    func didUpdateCurrency() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -60,7 +39,7 @@ extension ExchangeViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         registerCustomCells()
-        tableView.rowHeight = 50
+        tableView.rowHeight = 100
         tableView.allowsSelection = false
     }
     
@@ -70,12 +49,17 @@ extension ExchangeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return exchangeData.getCurrenciesCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.ReuseIDs.exchange) as! CurrencyCell
-    
+        
+        let currencyCode = exchangeData.getCurrencyCode(at: indexPath.row)
+        cell.codeLabel.text = currencyCode
+        cell.flagLabel.text = Constants.Currencies.getFlag(code: currencyCode)
+        cell.nameLabel.text = Constants.Currencies.getName(code: currencyCode)
+        
         return cell
     }
     

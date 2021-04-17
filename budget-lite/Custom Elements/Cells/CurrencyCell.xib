@@ -55,6 +55,9 @@
                         <color key="textColor" name="black-color-jet"/>
                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <action selector="textFieldValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="kNj-p7-Cl7"/>
+                        </connections>
                     </textField>
                 </subviews>
                 <color key="backgroundColor" name="lightbg-color"/>
